@@ -57,6 +57,7 @@ export default defineNuxtConfig({
         '@storyblok/nuxt',
         {
           accessToken: process.env.PREVIEWKEY,
+          devtools: true,
         },
       ],
       ['@nuxt/image'],
