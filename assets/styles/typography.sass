@@ -1,0 +1,137 @@
+
+// font-weight: 100 thin
+// font-weight: 200 extralight
+// font-weight: 300 light
+// font-weight: 400 regular
+// font-weight: 500 medium
+// font-weight: 600
+// font-weight: 700 bold
+// font-weight: 800 black
+// font-weight: 900
+
+@font-face
+  font-family: 'stype'
+  src: url('~/assets/fonts/ss/ss-regular.woff2') format('woff2')
+  font-weight: 400
+  font-style: normal
+
+@font-face
+  font-family: 'stype'
+  src: url('~/assets/fonts/ss/ss-regularitalic.woff2') format('woff2')
+  font-weight: 400
+  font-style: italic
+
+@font-face
+  font-family: 'stype'
+  src: url('~/assets/fonts/ss/ss-medium.woff2') format('woff2')
+  font-weight: 500
+  font-style: normal
+
+@font-face
+  font-family: 'stype'
+  src: url('~/assets/fonts/ss/ss-mediumitalic.woff2') format('woff2')
+  font-weight: 500
+  font-style: italic
+
+@font-face
+  font-family: 'stype'
+  src: url('~/assets/fonts/ss/ss-semibold.woff2') format('woff2')
+  font-weight: 700
+  font-style: normal
+
+@font-face
+  font-family: 'stype'
+  src: url('~/assets/fonts/ss/ss-semibolditalic.woff2') format('woff2')
+  font-weight: 700
+  font-style: italic
+
+
+// https://www.madebymike.com.au/writing/fluid-type-calc-examples/
+html
+  font-size: 14px
+
+@media screen and (min-width: 800px)
+  html
+    font-size: calc(14px + 4 * ((100vw - 800px) / 400))
+
+@media screen and (min-width: 1400px)
+  html
+    font-size: 18px
+
+body
+  text-rendering: geometricPrecision
+  font-kerning: normal
+  font-size: $type-size-p
+  line-height: $lineheight-p
+  font-family: $sans-serif
+  letter-spacing: .015rem
+
+h1, h2, h3, p, a
+  word-wrap: break-word
+  overflow-wrap: break-word
+  word-break: normal
+  hyphens: auto
+  word-break: keep-all
+
+.markdown p // No broken words in regular sized text paragraphs
+  overflow-wrap: normal
+  hyphens: none
+
+li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, span, input, button
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+p // Body
+  font-size: $type-size-p
+  font-weight: normal
+  line-height: $lineheight-p
+h1 // Heading
+  font-size: $type-size-h1
+  font-weight: normal
+  line-height: $lineheight-h1
+  strong
+    font-weight: bold
+  em
+    font-style: italic
+h6 // Caption
+  font-family: $sans-serif
+  font-size: $type-size-p
+  line-height: $lineheight-p
+  color: $color-secondary
+a
+  color: currentColor
+  white-space: nowrap
+
+.markdown
+  p
+    &:last-child
+      margin-bottom: 0
+  a
+    text-decoration: underline
+  strong, b
+    font-weight: bold
+  em, i
+    font-style: italic
+  blockquote, blockquote p
+    font-size: $type-size-h1
+  // p, h1, h2, h3, h4, h5, blockquote
+  //   margin-bottom: $lineheight
+  // p
+  //   min-height: $lineheight
+
+.ellipsis // Limit title to one line
+  overflow: hidden
+  min-width: 0
+  text-overflow: ellipsis
+  h1, h2, h3, p, a
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+.lineClamp // Limit excerpt to X lines
+  display: -webkit-box
+  -webkit-line-clamp: 3
+  -webkit-box-orient: vertical
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
