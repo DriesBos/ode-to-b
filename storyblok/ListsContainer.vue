@@ -1,5 +1,5 @@
 <template>
-  <section class="listItem-Container">
+  <section v-editable="blok" class="listItem-Container">
     <p>LIST CONTAINER (add storybloik component)</p>
   </section>
 </template>

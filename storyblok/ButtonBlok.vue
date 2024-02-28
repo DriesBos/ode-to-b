@@ -1,5 +1,5 @@
 <template>
-  <section class="buttonBlok hovered">
+  <section v-editable="blok" class="buttonBlok hovered">
     <p>BUTTON BLOK</p>
   </section>
 </template>

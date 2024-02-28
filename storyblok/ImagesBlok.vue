@@ -1,6 +1,5 @@
 <template>
-  <!-- prettier-ignore -->
-  <section class="imageGrid">
+  <section v-editable="blok" class="imageGrid">
     <p>IMAGES BLOK</p>
   </section>
 </template>

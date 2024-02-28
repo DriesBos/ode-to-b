@@ -1,3 +1,7 @@
+<template>
+  <StoryblokComponent v-if="story" :blok="story.content" />
+</template>
+
 <script setup>
 const { slug } = useRoute().params;
 
@@ -8,7 +12,3 @@ const story = await useAsyncStoryblok(
 
 console.log('SLUG');
 </script>
-
-<template>
-  <StoryblokComponent v-if="story" :blok="story.content" />
-</template>
