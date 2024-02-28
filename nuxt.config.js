@@ -38,7 +38,7 @@ export default defineNuxtConfig({
       css: {
         preprocessorOptions: {
           sass: {
-            additionalData: '@import "@/assets/styles/vars/variables.sass"',
+            additionalData: '@import "@/assets/styles/vars/*.sass"',
           },
         },
       },
@@ -59,23 +59,13 @@ export default defineNuxtConfig({
           accessToken: process.env.PREVIEWKEY,
         },
       ],
-      ['@vueuse/nuxt'],
       ['@nuxt/image'],
-      ['@nuxtjs/robots'],
     ],
 
     image: {
       format: ['webp'],
       storyblok: {
         baseURL: 'https://a.storyblok.com',
-      },
-      screens: {
-        xs: 320,
-        sm: 640,
-        md: 768,
-        lg: 1024,
-        xl: 1280,
-        xxl: 1536,
       },
     },
 
