@@ -1,66 +1,65 @@
+// Z-Index
+// 999 Footer Overlay
+// 998 Footer Form
+// 997 The Footer
+  
+// Colors
+$color-yellow: #FEFF00
+$color-blue: #1500FF
+$color-red: #FF0200
 
-$breakpoint-mobile: 768px
+// Transitions
+$transition-color: .75s ease
+$transition-cursor: .1625s ease
+$transition-imagehover: .1625s ease
+$transition-hover: .1625s ease
+$transition-icon: .1625s ease
+$transition-scroll-fade: .1625s ease
+$transition-scroll-filter: .5s ease
+$transition-slide: .25s ease-out
+$transition-filter: .6666s ease
+$transition-carousel: .5s ease
+
+// Breakpoints
+$breakpoint-mobile: 800px
 $breakpoint-tablet: 1024px
-$breakpoint-desktop: 1400px
+$breakpoint-laptop: 1440px
 
-// Z-INDEX
-$z-layerOne: 100 // Stars and Back-Menu
-$z-layerTwo: 200 // Landscape
-$z-layerThree: 300 // Clouds + Footer
-$z-layerFour: 400 // Front-Menu
-$z-layerFive: 500 // Modals
-// $z-landing: 90
-// $z-landscapes: 100
-// $z-buildings: 110
-// $z-footer: 200
-// $z-scrollUp: 700
-// $z-header: 800
-// $z-modal: 900
-$z-mouse: 999
-
-// TYPE
-$color-black: black
-$color-white: white
-$color-secondary: #abb8c3
-$type-size-p: 1rem
-$lineheight-p: 1.47em
-$type-size-h1: 1.44rem
-$lineheight-h1: 1.111em
-$btn-padding: 0.375rem
-
-$lineheight-serif-p: 1.47em
-$lineheight-serif-h1: 1.111em
-
-// COLORS
-$color-support: green
-$color-blue: #0000EE
-$color-yellow: #F9ED26
-$border: 1px solid red
-$color-bg: hsla(0, 0%, 0%, .33)
-
-// FONTS
-$sans-serif: 'stype', Helvetica, Arial, sans-serif
-$font-small: .75rem
-
-// TRANSITIONS
-$transition-hover: .33s ease
-$transition-img: .33s ease-in
-$transition-general: .33s ease-in-out
-$transition-bg: .16s ease-in-out
-
-// SPACING
 body
-  --spacing-one: 2.2rem
-  --spacing-two: 4.4rem
-  --spacing-ver: 1.7rem
-  --spacing-hor: 2.2rem
-  @media screen and ( min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet)
-    --spacing-one: 1.333rem
-    --spacing-two: 2.666rem
-    --spacing-ver: 1.333rem
-    --spacing-hor: 1.333rem
+  --spacing-one: 2vmin
+  --spacing-two: 4vmin
+  --spacing-three: 8vmin
+  --side-spacing: 9vw
+  --topside-spacing: calc(1.33rem + 5.5vw)
   @media screen and ( max-width: $breakpoint-mobile)
-    --spacing-one: 1rem
-    --spacing-two: 2rem
-    --spacing-ver: 1rem
-    --spacing-hor: 1rem
+    --spacing-one: 1em
+    --spacing-two: 1em
+    --spacing-three: 2em
+    --side-spacing: 2em
+    --topside-spacing: 2em
+
+main
+  --current-color: black
+  --filter-color: #555
+  --second-color: white
+  --third-color: white
+  &.yellow
+    --current-color: #FEFF00
+    --filter-color: #FEFF00
+    --second-color: black
+    --third-color: white
+  &.blue
+    --current-color: #1500FF
+    --filter-color: #1500FF
+    --second-color: white
+    --third-color: black
+  &.red
+    --current-color: #FF0200
+    --filter-color: #FF0200
+    --second-color: white
+    --third-color: black
+  &.white
+    --current-color: white
+    --filter-color: white
+    --second-color: black
+    --third-color: white

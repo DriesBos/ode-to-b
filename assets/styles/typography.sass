@@ -9,117 +9,83 @@
 // font-weight: 800 black
 // font-weight: 900
 
+
+
 @font-face
-  font-family: 'stype'
-  src: url('~/assets/fonts/ss/ss-regular.woff2') format('woff2')
-  font-weight: 400
+  font-family: 'DINBk' // Din bold
+  src: url('~assets/fonts/DINBk.woff2') format('woff2')
+  font-weight: normal
   font-style: normal
 
 @font-face
-  font-family: 'stype'
-  src: url('~/assets/fonts/ss/ss-regularitalic.woff2') format('woff2')
-  font-weight: 400
-  font-style: italic
-
-@font-face
-  font-family: 'stype'
-  src: url('~/assets/fonts/ss/ss-medium.woff2') format('woff2')
-  font-weight: 500
+  font-family: 'DINBklt' // Din bold italic
+  src: url('~assets/fonts/DINBkIt.woff2') format('woff2')
+  font-weight: normal
   font-style: normal
 
 @font-face
-  font-family: 'stype'
-  src: url('~/assets/fonts/ss/ss-mediumitalic.woff2') format('woff2')
-  font-weight: 500
-  font-style: italic
-
-@font-face
-  font-family: 'stype'
-  src: url('~/assets/fonts/ss/ss-semibold.woff2') format('woff2')
-  font-weight: 700
+  font-family: 'DINRg' // Din regular
+  src: url('~assets/fonts/DINRg.woff2') format('woff2')
+  font-weight: normal
   font-style: normal
 
 @font-face
-  font-family: 'stype'
-  src: url('~/assets/fonts/ss/ss-semibolditalic.woff2') format('woff2')
-  font-weight: 700
-  font-style: italic
+  font-family: 'DINRglt' // Din regular italic
+  src: url('~assets/fonts/DINRgIt.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
 
-
-// https://www.madebymike.com.au/writing/fluid-type-calc-examples/
-html
-  font-size: 14px
-
-@media screen and (min-width: 800px)
-  html
-    font-size: calc(14px + 4 * ((100vw - 800px) / 400))
-
-@media screen and (min-width: 1400px)
-  html
-    font-size: 18px
+@font-face
+  font-family: 'MaelstromSans-Bold'
+  src: url('~assets/fonts/MaelstromSans-Bold.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
 
 body
-  text-rendering: geometricPrecision
-  font-kerning: normal
-  font-size: $type-size-p
-  line-height: $lineheight-p
-  font-family: $sans-serif
-  letter-spacing: .015rem
+  // https://css-tricks.com/snippets/css/fluid-typography/
+  // font-size: 18px
+  font-size: calc(18px + (22 - 18) * ((100vw - 800px) / (1400 - 800)))
 
-h1, h2, h3, p, a
-  word-wrap: break-word
-  overflow-wrap: break-word
-  word-break: normal
-  hyphens: auto
-  word-break: keep-all
-
-.markdown p // No broken words in regular sized text paragraphs
+h1, h2, h3, h4, h5, p, a, em, strong, .markdown
+  word-wrap: normal
   overflow-wrap: normal
+  word-break: normal
+h1, h2
+  hyphens: auto
+h3, h4, h5, p, a
   hyphens: none
 
-li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, span, input, button
+li, h1, h2, h3, h4, h5, p, a, span, input, button
+  font-family: 'DINBk', Helvetica, Arial, sans-serif
+  color: currentColor
+  font-style: normal
+  font-weight: normal
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-p // Body
-  font-size: $type-size-p
-  font-weight: normal
-  line-height: $lineheight-p
-h1 // Heading
-  font-size: $type-size-h1
-  font-weight: normal
-  line-height: $lineheight-h1
-  strong
-    font-weight: bold
-  em
-    font-style: italic
-h6 // Caption
-  font-family: $sans-serif
-  font-size: $type-size-p
-  line-height: $lineheight-p
-  color: $color-secondary
+h1, h2, input // Titles + input type
+  font-size: 4em
+  line-height: 1.27
+h3 // Big type
+  font-size: 2.33em
+  line-height: 1.27
+h4, p // Small type,
+  font-size: 1.66em
+  line-height: 1.27
+h5, span, button, nav // Info type
+  font-size: 1.33em
+  line-height: 1.27
 a
   color: currentColor
-  white-space: nowrap
-
-.markdown
-  p
-    &:last-child
-      margin-bottom: 0
-  a
-    text-decoration: underline
-  strong, b
-    font-weight: bold
-  em, i
-    font-style: italic
-  blockquote, blockquote p
-    font-size: $type-size-h1
-  // p, h1, h2, h3, h4, h5, blockquote
-  //   margin-bottom: $lineheight
-  // p
-  //   min-height: $lineheight
-
-.ellipsis // Limit title to one line
+  text-decoration: none
+strong
+  font-weight: bold
+em
+  font-style: italic
+.inline
+  li, h1, h2, h3, h4, p, a, span, input, button
+    display: inline
+.ellipsis
   overflow: hidden
   min-width: 0
   text-overflow: ellipsis
@@ -127,11 +93,7 @@ a
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
-
-.lineClamp // Limit excerpt to X lines
-  display: -webkit-box
-  -webkit-line-clamp: 3
-  -webkit-box-orient: vertical
-  text-overflow: ellipsis
-  overflow: hidden
-  white-space: nowrap
+.smallsize
+  h1, h2, h3, h4, h5, p, a
+    font-size: 1.66em !important
+    display: inline !important

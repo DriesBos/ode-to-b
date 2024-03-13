@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { apiPlugin } from '@storyblok/vue';
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -33,45 +34,45 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
 
-    vite: {
-      css: {
-        preprocessorOptions: {
-          sass: {
-            additionalData: '@import "@/assets/styles/vars/*.sass"',
-          },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: '@import "@/assets/styles/vars/variables.sass"',
         },
       },
     },
+  },
 
-    css: [
-      '~/assets/styles/reset.css',
-      '~/assets/styles/form-reset.css',
-      '~/assets/styles/typography.sass',
-      '~/assets/styles/transitions.sass',
-      '~/assets/styles/main.sass',
-    ],
+  css: [
+    '~/assets/styles/reset.css',
+    '~/assets/styles/form-reset.css',
+    '~/assets/styles/typography.sass',
+    '~/assets/styles/transitions.sass',
+    '~/assets/styles/main.sass',
+  ],
 
-    modules: [
-      [
-        '@storyblok/nuxt',
-        {
-          accessToken: process.env.PREVIEWKEY,
-          devtools: true,
-        },
-      ],
-      ['@nuxt/image'],
-    ],
-
-    image: {
-      format: ['webp'],
-      storyblok: {
-        baseURL: 'https://a.storyblok.com',
+  modules: [
+    [
+      '@storyblok/nuxt',
+      {
+        accessToken: process.env.PREVIEWKEY,
+        use: [apiPlugin],
       },
-    },
+    ],
+    ['@nuxt/image'],
+  ],
 
-    build: {
-      transpile: ['gsap'],
+  image: {
+    format: ['webp'],
+    storyblok: {
+      baseURL: 'https://a.storyblok.com',
     },
+  },
+
+  build: {
+    transpile: ['gsap'],
   },
 });
