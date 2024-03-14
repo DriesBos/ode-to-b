@@ -22,7 +22,6 @@ const router = useRouter();
 
 function handleClick() {
   router.back();
-  console.log('router', router);
 }
 // export default {
 //   data() {

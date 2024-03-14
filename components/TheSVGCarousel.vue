@@ -250,15 +250,6 @@ function onScrollOpacity() {
 }
 </script>
 
-<!-- <script>
-export default {
-  methods: {
-
-
-  },
-};
-</script> -->
-
 <style lang="sass">
 .svg-container
   display: inline-block
