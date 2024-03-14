@@ -2,6 +2,7 @@
   <main :class="pageColor">
     <TheHeader :class="pageColor" />
     <!-- <TheSVGCarousel :class="pageColor" /> -->
+    <h1>LAYOUT DEFAULT</h1>
     <slot />
     <TheFooter />
   </main>
