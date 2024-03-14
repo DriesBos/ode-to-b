@@ -17,8 +17,6 @@
 
 <script setup>
 const props = defineProps({ blok: Object });
-
-console.log(props.blok.graphic);
 </script>
 
 <style lang="sass">

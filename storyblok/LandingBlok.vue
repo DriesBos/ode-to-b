@@ -1,11 +1,46 @@
 <template>
-  <section v-editable="blok" class="landingItem">
-    <p>LANDING BLOK</p>
+  <section v-editable="blok" class="landingItem" :class="{ filter: filtered }">
+    <div class="img">
+      <img :src="blok.image" />
+    </div>
+    <div class="landingItem-Text">
+      <h1 v-if="blok.title">{{ blok.title }}</h1>
+    </div>
   </section>
 </template>
 
-<script setup>
-defineProps({ blok: Object });
+<script>
+export default {
+  props: {
+    blok: Object,
+  },
+  data() {
+    return {
+      filtered: true,
+    };
+  },
+  mounted() {
+    this.applyFilter();
+    window.addEventListener('scroll', this.applyFilter);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.applyFilter);
+  },
+  methods: {
+    applyFilter() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (
+        currentScrollPosition > window.innerHeight * 0.8 ||
+        currentScrollPosition === 0
+      ) {
+        this.filtered = true;
+      } else {
+        this.filtered = false;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="sass">
