@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     '~/assets/styles/form-reset.css',
     '~/assets/styles/typography.sass',
     '~/assets/styles/transitions.sass',
-    '~/assets/styles/main.sass',
+    '~/assets/styles/body.sass',
   ],
 
   modules: [

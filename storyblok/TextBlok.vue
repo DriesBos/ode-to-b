@@ -3,7 +3,9 @@
   <section
     v-editable="blok"
     class="textBlok intersectionObserver"
+    :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }"
   >
+
   <p>TEXT BLOK</p>
   </section>
 </template>

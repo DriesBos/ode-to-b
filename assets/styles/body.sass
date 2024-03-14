@@ -1,0 +1,113 @@
+// Lazy Load
+.vueLazy img
+  opacity: 0
+  transition: opacity .25s ease-in-out
+
+img[lazy=loaded]
+  opacity: 1
+
+// OPTIONS
+.yellow, .view-Home
+  color: $color-yellow
+  .footerform
+    color: black
+.blue, .view-Brands, .view-BrandSingle
+  color: $color-blue
+.red, .view-Art, .view-ArtSingle
+  color: $color-red
+  .footerform
+    color: white
+.black
+  color: black
+.grey
+  color: grey
+.white, .view-People
+  color: white
+  .footerform
+    color: black
+.view-Message
+  background: white
+  color: black
+
+.fullscreen
+  min-height: 100vh
+.textLeft
+  text-align: left
+.textCenter
+  text-align: center
+  .markdown
+    display: flex
+    flex-direction: column
+    align-items: center
+.capslock
+  text-transform: uppercase
+.visible
+  opacity: 1 !important
+
+// CURSOR
+.cursor
+  position: fixed
+  pointer-events: none
+  z-index: 999
+  width: 6vmin
+  height: 6vmin
+  min-width: 30px
+  min-height: 30px
+  svg
+    position: absolute
+    top: 0
+    left: 0
+    transform: translate(-10%, -10%)
+    transition: color $transition-hover
+    color: currentColor
+  &.footerformcursor
+    color: var(--second-color)
+  &.thefootercursor
+    color: var(--second-color)
+  &.footermodal
+    color: black
+
+  @media ( hover: none )
+    display: none
+
+// GENERAL
+main, input, .button, button, svg, a
+  cursor: none
+
+section
+  position: relative
+  max-width: 100%
+  img
+    max-width: 100%
+
+// BUILDING BLOCKS
+.graphic
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  left: 0
+  bottom: 0
+  width: 100%
+  height: 100%
+  max-height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  padding-top: var(--spacing-three)
+  padding-bottom: var(--spacing-three)
+  padding-left: var(--side-spacing)
+  padding-right: var(--side-spacing)
+  z-index: 0
+  pointer-events: none
+  &.left
+    justify-content: flex-start
+  &.center
+    img
+      width: 100%
+  &.right
+    justify-content: flex-end
+  .svg
+    height: 100%
+    width: 100%
+  img
+    height: 100%
