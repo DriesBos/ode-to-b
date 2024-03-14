@@ -45,6 +45,7 @@ export default {
 
 <style lang="sass">
 .landingItem
+  position: relative
   width: 100vw
   height: 100vh
   z-index: -5
@@ -52,10 +53,8 @@ export default {
   transition: background $transition-scroll-filter
   will-change: background
   pointer-events: none
-  .vueLazy
-    width: 100%
-    height: 100%
   img
+    position: absolute
     width: 100%
     height: 100%
     object-fit: cover
@@ -72,13 +71,13 @@ export default {
     padding: var(--spacing-three)
     text-transform: uppercase
     text-align: center
-.view-Home .landingItem,
-.view-Brands .landingItem,
-.view-People .landingItem,
-.view-Art .landingItem
+.page-Default .landingItem,
+.page-Default .landingItem,
+.page-Default .landingItem,
+.page-Default .landingItem
   position: sticky
   top: 0
-.view-Single .landingItem
+.page-Project .landingItem
   position: relative
   background-color: rgba(0,0,0,0)
   transition: background-color $transition-filter
@@ -87,9 +86,4 @@ export default {
     mix-blend-mode: multiply
   &.filter
     background-color: var(--filter-color)
-  // .view-PeopleSingle
-  //   .landingItem
-  //     border: 5px solid red
-  //     img
-  //       filter: greyscale(1)
 </style>
