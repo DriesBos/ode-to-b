@@ -5,13 +5,20 @@
     class="textBlok intersectionObserver"
     :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }"
   >
+  <div class="graphic" :class="blok.graphic_alignment">
+      <img v-if="blok.graphic" :src="blok.graphic" class="skewGraphic" :alt="blok.text" />
+    </div>
 
-  <Markdown :content="blok.text" />
+  <Markdown v-if="blok.text" class="textBlok-Item textBlok-Main" :content="blok.text" />
+  <Markdown v-if="blok.fade_in_text"    class="textBlok-Item textBlok-FadeIn"
+      :content="blok.fade_in_text" />
   </section>
 </template>
 
 <script setup>
-defineProps({ blok: Object });
+const props = defineProps({ blok: Object });
+
+console.log(props.blok.graphic);
 </script>
 
 <style lang="sass">
