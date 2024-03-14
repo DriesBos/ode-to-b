@@ -1,7 +1,15 @@
 <template>
-  <!-- prettier-ignore -->
   <section v-editable="blok" class="projectList">
-  <p> PROJECTS CONTAINER</p>
+    <h3 v-if="blok.title" class="DINRg">
+      {{ blok.title }}
+    </h3>
+    <ul class="projectList-Container">
+      <StoryblokComponent
+        v-for="blok in blok.list"
+        :key="blok._uid"
+        :blok="blok"
+      />
+    </ul>
   </section>
 </template>
 
