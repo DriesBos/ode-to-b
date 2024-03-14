@@ -180,7 +180,7 @@
 <script>
 export default {
   mounted() {
-    console.log('SVG Carousel mounted', this.$route);
+    // console.log('SVG Carousel mounted', this.$route);
   },
   methods: {
     setRatioAndPath() {
