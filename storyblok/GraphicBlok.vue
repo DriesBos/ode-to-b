@@ -1,6 +1,8 @@
 <template>
   <section v-editable="blok" class="landinggraphicitem">
-    <p>GRAPHIC BLOK</p>
+    <div class="landinggraphicitem-Container" :class="blok.graphic_alignment">
+      <img v-if="blok.graphic" :src="blok.graphic" alt="" />
+    </div>
   </section>
 </template>
 
