@@ -1,13 +1,139 @@
 <template>
-  <div>TheFooter</div>
+  <section id="theFooter" class="footer" :class="{ visible: isVisible }">
+    <ul>
+      <li>Site</li>
+      <li class="hovered links">
+        <NuxtLink to="/">Home</NuxtLink>
+      </li>
+      <li class="hovered links">
+        <NuxtLink to="/brands">For Brands</NuxtLink>
+      </li>
+      <li class="hovered links">
+        <NuxtLink to="/art">For Art</NuxtLink>
+      </li>
+      <li class="hovered links">
+        <NuxtLink to="/people">For People</NuxtLink>
+      </li>
+      <li class="hovered links" target="_blank">
+        <a href="https://shop.odetoa.com/collections/frontpage">Shop</a>
+      </li>
+    </ul>
+    <ul>
+      <li>Offices</li>
+      <li class="hovered links" @click="toggleFooterModalAmsterdam">
+        {{ general[0].content.amsterdam }}
+      </li>
+      <li class="hovered links" @click="toggleFooterModalMexico">
+        {{ general[0].content.mexico }}
+      </li>
+      <li class="hovered links" @click="toggleFooterModalGhana">
+        {{ general[0].content.ghana }}
+      </li>
+    </ul>
+    <ul
+      v-if="
+        general[0].content.instagram ||
+        general[0].content.facebook ||
+        general[0].content.linkedin
+      "
+    >
+      <li>Follow Us</li>
+      <li v-if="general[0].content.instagram" class="hovered links">
+        <a
+          :href="general[0].content.instagram"
+          target="_blank"
+          title="instagram"
+          rel="noreferrer"
+          >Instagram</a
+        >
+      </li>
+      <li v-if="general[0].content.facebook" class="hovered links">
+        <a
+          :href="general[0].content.facebook"
+          target="_blank"
+          title="instagram"
+          rel="noreferrer"
+          >Facebook</a
+        >
+      </li>
+      <li v-if="general[0].content.linkedin" class="hovered links">
+        <a
+          :href="general[0].content.linkedin"
+          target="_blank"
+          title="instagram"
+          rel="noreferrer"
+          >LinkedIn</a
+        >
+      </li>
+    </ul>
+    <ul>
+      <li>&nbsp;</li>
+      <li class="hovered links" @click="toggleFooterModalTerms">Terms</li>
+      <li class="hovered links" @click="toggleFooterModalMadeby">Made By</li>
+    </ul>
+  </section>
 </template>
 
 <script setup>
+const general = ref(null);
 const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories/home', {
+const { data } = await storyblokApi.get('cdn/stories/', {
   version: 'draft',
-  resolve_links: 'url',
+  starts_with: 'general',
+  is_startpage: false,
 });
+
+general.value = data.stories;
+
+const isVisible = ref(false);
+
+function toggleFooterModalAmsterdam() {
+  this.$emit('update', {
+    title: general[0].content.amsterdam,
+    text: general[0].content.amsterdam_text,
+  });
+}
+function toggleFooterModalMexico() {
+  this.$emit('update', {
+    title: general[0].content.mexico,
+    text: general[0].content.mexico_text,
+  });
+}
+function toggleFooterModalGhana() {
+  this.$emit('update', {
+    title: general[0].content.ghana,
+    text: general[0].content.ghana_text,
+  });
+}
+function toggleFooterModalTerms() {
+  this.$emit('update', {
+    title: general[0].content.terms_title,
+    text: general[0].content.terms_text,
+  });
+}
+function toggleFooterModalMadeby() {
+  this.$emit('update', {
+    title: general[0].content.madeby_title,
+    text: general[0].content.madeby_text,
+  });
+}
+function setVisible() {
+  const currentScrollPosition =
+    window.pageYOffset || document.documentElement.scrollTop;
+  if (currentScrollPosition > document.body.clientHeight - window.innerHeight) {
+    this.isVisible = true;
+  } else {
+    this.isVisible = false;
+  }
+}
+function TheFooterCursor() {
+  let cursor = document.querySelector('.cursor');
+  cursor.classList.add('thefootercursor');
+}
+function removeTheFooterCursor() {
+  let cursor = document.querySelector('.cursor');
+  cursor.classList.remove('thefootercursor');
+}
 </script>
 
 <style lang="sass">
