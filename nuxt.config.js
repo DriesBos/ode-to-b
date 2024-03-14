@@ -63,6 +63,7 @@ export default defineNuxtConfig({
       },
     ],
     ['@nuxt/image'],
+    ['@pinia/nuxt'],
   ],
 
   image: {

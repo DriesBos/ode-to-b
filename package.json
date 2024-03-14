@@ -12,10 +12,12 @@
   "dependencies": {
     "@nuxt/devtools": "^1.0.8",
     "@nuxt/image": "^1.4.0",
+    "@pinia/nuxt": "^0.5.1",
     "@storyblok/nuxt": "^6.0.4",
     "gsap": "^3.12.5",
     "markdown-it": "^14.0.0",
     "nuxt": "^3.10.2",
+    "pinia": "^2.1.7",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "vue": "^3.4.19",
