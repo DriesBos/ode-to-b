@@ -177,75 +177,87 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+const router = useRoute();
+
+onMounted(() => {
+  setRatioAndPath();
+  setScrollTrigger();
+  window.addEventListener('resize', setRatioAndPath);
+  window.addEventListener('scroll', onScrollOpacity);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', setRatioAndPath);
+  window.removeEventListener('scroll', onScrollOpacity);
+});
+
+function setRatioAndPath() {
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let lastHeight = window.innerWidth * 0.016;
+  let shape = document.getElementById('theSvg');
+  if (shape) {
+    shape.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  }
+  let path = document.getElementById('thePath');
+  let d = `M 0 0 L ${width} 0 L ${width} ${height} L 0 ${height} L 0 ${lastHeight}`;
+  if (path) {
+    path.setAttribute('d', d);
+  }
+  let carousel = document.getElementById('carousel');
+  setTimeout(function () {
+    if (carousel) {
+      carousel.style.opacity = '1';
+    }
+  }, 50);
+}
+
+function setScrollTrigger() {
+  let path = document.getElementById('text-path');
+  var body = document.body;
+  var html = document.documentElement;
+  var docHeight = Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  );
+  gsap.to(path, {
+    attr: { startOffset: -docHeight / 2 },
+    ease: 'none',
+    scrollTrigger: {
+      scrub: 0,
+    },
+  });
+}
+
+function onScrollOpacity() {
+  let text = document.getElementById('theSvg');
+  let position = document.body.scrollTop || document.documentElement.scrollTop;
+  if (text && position > window.innerHeight) {
+    text.classList.add('inactive');
+    text.classList.remove('active');
+  } else if (text) {
+    text.classList.add('active');
+    text.classList.remove('inactive');
+  }
+}
+</script>
+
+<!-- <script>
 export default {
-  mounted() {
-    // console.log('SVG Carousel mounted', this.$route);
-  },
   methods: {
-    setRatioAndPath() {
-      let width = window.innerWidth;
-      let height = window.innerHeight;
-      let lastHeight = window.innerWidth * 0.016;
-      let shape = document.getElementById('theSvg');
-      // Setting the width/height on the SVG viewbox
-      if (shape) {
-        shape.setAttribute('viewBox', `0 0 ${width} ${height}`);
-      }
-      let path = document.getElementById('thePath');
-      let d = `M 0 0 L ${width} 0 L ${width} ${height} L 0 ${height} L 0 ${lastHeight}`;
-      if (path) {
-        path.setAttribute('d', d);
-      }
-      if (
-        this.$route.name === 'index' ||
-        this.$route.name === 'brands' ||
-        this.$route.name === 'art' ||
-        this.$route.name === 'people'
-      ) {
-        let carousel = document.getElementById('carousel');
-        setTimeout(function () {
-          if (carousel) {
-            carousel.style.opacity = '1';
-          }
-        }, 50);
-      }
-    },
-    setScrollTrigger() {
-      let path = document.getElementById('text-path');
-      // Calc document height
-      var body = document.body;
-      var html = document.documentElement;
-      var docHeight = Math.max(
-        body.scrollHeight,
-        body.offsetHeight,
-        html.clientHeight,
-        html.scrollHeight,
-        html.offsetHeight
-      );
-      gsap.to(path, {
-        attr: { startOffset: -docHeight / 2 },
-        ease: 'none',
-        scrollTrigger: {
-          scrub: 0,
-        },
-      });
-    },
-    onScrollOpacity() {
-      let text = document.getElementById('theSvg');
-      let position =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      if (text && position > window.innerHeight) {
-        text.classList.add('inactive');
-        text.classList.remove('active');
-      } else if (text) {
-        text.classList.add('active');
-        text.classList.remove('inactive');
-      }
-    },
+
+
   },
 };
-</script>
+</script> -->
 
 <style lang="sass">
 .svg-container
@@ -263,7 +275,6 @@ export default {
   z-index: 899
   pointer-events: none
   opacity: 0 // Changed via JavaScript
-  opacity: 1
   svg
     height: 100%
     width: 100%

@@ -1,6 +1,17 @@
 <template>
-  <section v-editable="blok" class="listItem-Container">
-    <p>LIST CONTAINER (add storybloik component)</p>
+  <section
+    class="listItem-Container"
+    :class="{
+      fullscreen: blok.fullscreen,
+      textCenter: blok.left_alignment,
+      capslock: blok.capslock,
+    }"
+  >
+    <StoryblokComponent
+      v-for="blok in blok.body"
+      :key="blok._uid"
+      :blok="blok"
+    />
   </section>
 </template>
 

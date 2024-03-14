@@ -1,6 +1,15 @@
 <template>
-  <section v-editable="blok" class="imageGrid">
-    <p>IMAGES BLOK</p>
+  <!-- prettier-ignore -->
+  <section :id="blok._uid" v-editable="blok" class="imageGrid">
+    <ul>
+      <li v-for="image in blok.image" :key="image.filename" class="imageGrid-Item skewElem">
+        <div class="imageGrid-Item_Placeholder">
+          <div>
+            <img v-if="image.filename" :src="image.filename" >
+          </div>
+        </div>
+      </li>
+    </ul>
   </section>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <nav>
-      <ul class="header-Single" :class="{ active: arrowFilled }">
-        <li>
+      <ul class="header-Single">
+        <li @click="handleClick">
           <svg viewBox="0 0 46.65 37.7">
             <g data-name="Laag 2">
               <path
@@ -17,25 +17,34 @@
   </header>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      arrowFilled: true,
-    };
-  },
-  methods: {
-    singlePageArrowColor() {
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollPosition < window.innerHeight * 0.3) {
-        this.arrowFilled = true;
-      } else {
-        this.arrowFilled = false;
-      }
-    },
-  },
-};
+<script setup>
+const router = useRouter();
+
+function handleClick() {
+  router.back();
+  console.log('router', router);
+}
+// export default {
+//   data() {
+//     return {
+//       arrowFilled: true,
+//     };
+//   },
+//   mounted() {
+//     console.log(this.$route);
+//   },
+//   methods: {
+//     singlePageArrowColor() {
+//       const currentScrollPosition =
+//         window.pageYOffset || document.documentElement.scrollTop;
+//       if (currentScrollPosition < window.innerHeight * 0.3) {
+//         this.arrowFilled = true;
+//       } else {
+//         this.arrowFilled = false;
+//       }
+//     },
+//   },
+// };
 </script>
 
 <style lang="sass">

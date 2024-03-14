@@ -36,34 +36,34 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('scroll', this.ifViewportCenter);
+    // window.addEventListener('scroll', this.ifViewportCenter);
   },
   destroyed() {
-    window.removeEventListener('scroll', this.ifViewportCenter);
+    // window.removeEventListener('scroll', this.ifViewportCenter);
   },
   methods: {
-    ifViewportCenter() {
-      var windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-      var windowHalf = windowHeight / 2;
-      var el = document.getElementById(this.blok._uid);
-      var bounding = el.getBoundingClientRect();
-      if (
-        bounding.top - windowHalf <= 0 &&
-        bounding.top - windowHalf >= 0 - bounding.height
-      ) {
-        el.classList.add('active');
-      } else {
-        el.classList.remove('active');
-      }
-    },
-    mouseEntered() {
-      var allSingles = document.querySelectorAll('.projectList-Single');
-      allSingles.forEach((el) => {
-        el.classList.remove('active');
-      });
-      document.getElementById(this.blok._uid).classList.add('active');
-    },
+    // ifViewportCenter() {
+    //   var windowHeight =
+    //     window.innerHeight || document.documentElement.clientHeight;
+    //   var windowHalf = windowHeight / 2;
+    //   var el = document.getElementById(this.blok._uid);
+    //   var bounding = el.getBoundingClientRect();
+    //   if (
+    //     bounding.top - windowHalf <= 0 &&
+    //     bounding.top - windowHalf >= 0 - bounding.height
+    //   ) {
+    //     el.classList.add('active');
+    //   } else {
+    //     el.classList.remove('active');
+    //   }
+    // },
+    // mouseEntered() {
+    //   var allSingles = document.querySelectorAll('.projectList-Single');
+    //   allSingles.forEach((el) => {
+    //     el.classList.remove('active');
+    //   });
+    //   document.getElementById(this.blok._uid).classList.add('active');
+    // },
   },
 };
 </script>
