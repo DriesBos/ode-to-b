@@ -6,7 +6,7 @@
     :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }"
   >
 
-  <p>TEXT BLOK</p>
+  <Markdown :content="blok.text" />
   </section>
 </template>
 
