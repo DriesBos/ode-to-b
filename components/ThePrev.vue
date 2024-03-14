@@ -1,23 +1,42 @@
 <template>
   <header class="header">
     <nav>
-      <ul class="header-Desktop">
-        <li class="hovered">
-          <NuxtLink to="/" class="hovered" tag="li">A —</NuxtLink>
-        </li>
-        <li class="hovered">
-          <NuxtLink to="/brands" class="hovered" tag="li">For Brands</NuxtLink>
-        </li>
-        <li class="hovered">
-          <NuxtLink to="/people'" class="hovered" tag="li">For People</NuxtLink>
-        </li>
-        <li class="hovered">
-          <NuxtLink to="/art'" class="hovered" tag="li">For Art</NuxtLink>
+      <ul class="header-Single" :class="{ active: arrowFilled }">
+        <li>
+          <svg viewBox="0 0 46.65 37.7">
+            <g data-name="Laag 2">
+              <path
+                d="M27.8,37.7H17.55l15.2-15H0V15H32.75L17.55,0H27.8L46.65,18.85Z"
+                data-name="Laag 1"
+              />
+            </g>
+          </svg>
         </li>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      arrowFilled: true,
+    };
+  },
+  methods: {
+    singlePageArrowColor() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition < window.innerHeight * 0.3) {
+        this.arrowFilled = true;
+      } else {
+        this.arrowFilled = false;
+      }
+    },
+  },
+};
+</script>
 
 <style lang="sass">
 .header
