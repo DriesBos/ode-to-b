@@ -1,6 +1,15 @@
 <template>
-  <section v-editable="blok" class="buttonBlok hovered">
-    <p>BUTTON BLOK</p>
+  <!-- prettier-ignore -->
+  <section
+    v-editable="blok"
+    class="buttonBlok hovered"
+    :class="{ fullscreen: blok.fullscreen, capslock: blok.capslock }"
+  >
+    <div class="buttonBlok-Item" :title="blok.text">
+      <a :href="blok.hyperlink.cached_url" target="_blank" rel="noreferrer">
+        <h3>{{ blok.text }}</h3>
+      </a>
+    </div>
   </section>
 </template>
 
