@@ -1,8 +1,8 @@
 <template>
   <section v-editable="blok" class="landingItem" :class="{ filter: filtered }">
-    <div class="img">
+    <!-- <div class="img">
       <img src="/assets/images/bg04.png" />
-    </div>
+    </div> -->
     <div class="landingItem-Text">
       <h1 v-if="blok.title">{{ blok.title }}</h1>
     </div>

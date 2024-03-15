@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const route = useRoute();
 
-const pageColor = ref('black');
+const pageColor = ref('red');
 
 watch(
   () => route.fullPath,
@@ -22,30 +22,31 @@ watch(
   }
 );
 
-// function setColor() {
-//   if (route.path == '/') {
-//     pageColor.value = 'black';
-//   } else if (route.params.slug[0] === 'brands') {
-//     pageColor.value = 'blue';
-//   } else if (route.params.slug[0] === 'art') {
-//     pageColor.value = 'red';
-//   } else if (route.params.slug[0] === 'people') {
-//     pageColor.value = 'ghana';
-//   } else {
-//     pageColor.value = 'black';
-//   }
-// }
+function setColor() {
+  if (route.path == '/') {
+    pageColor.value = 'red';
+  } else if (route.params.slug[0] === 'brands') {
+    pageColor.value = 'blue';
+  } else if (route.params.slug[0] === 'art') {
+    pageColor.value = 'red';
+  } else if (route.params.slug[0] === 'people') {
+    pageColor.value = 'black';
+  } else {
+    pageColor.value = 'black';
+  }
+}
 
 onMounted(() => {
-  setInterval(setColor, 10000);
+  // setInterval(setColor, 10000);
+  setColor();
 });
 
-let colorIndex = 0;
-const colors = ['black', 'blue', 'red', 'ghana', 'black'];
+// let colorIndex = 0;
+// const colors = ['black', 'blue', 'red', 'ghana', 'black'];
 
-function setColor() {
-  let color = colors[colorIndex];
-  colorIndex = (colorIndex + 1) % colors.length;
-  return (pageColor.value = color);
-}
+// function setColor() {
+//   let color = colors[colorIndex];
+//   colorIndex = (colorIndex + 1) % colors.length;
+//   return (pageColor.value = color);
+// }
 </script>
