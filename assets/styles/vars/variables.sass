@@ -4,9 +4,10 @@
 // 997 The Footer
   
 // Colors
-$color-yellow: #FEFF00
+// $color-yellow: #FEFF00
 $color-blue: #1500FF
 $color-red: #FF0200
+$color-ghana: #2C0402
 
 // Transitions
 $transition-color: .75s ease
@@ -19,6 +20,7 @@ $transition-scroll-filter: .5s ease
 $transition-slide: .25s ease-out
 $transition-filter: .6666s ease
 $transition-carousel: .5s ease
+$transition-page-color: 3s ease
 
 // Breakpoints
 $breakpoint-mobile: 800px
@@ -43,11 +45,11 @@ main
   --filter-color: #555
   --second-color: white
   --third-color: white
-  &.yellow
-    --current-color: #FEFF00
-    --filter-color: #FEFF00
-    --second-color: black
-    --third-color: white
+  // &.yellow
+  //   --current-color: #FEFF00
+  //   --filter-color: #FEFF00
+  //   --second-color: black
+  //   --third-color: white
   &.blue
     --current-color: #1500FF
     --filter-color: #1500FF
@@ -58,6 +60,16 @@ main
     --filter-color: #FF0200
     --second-color: white
     --third-color: black
+  &.ghana
+    --current-color: $color-ghana
+    --filter-color: $color-ghana
+    --second-color: black
+    --third-color: white
+  &.black
+    --current-color: black
+    --filter-color: black
+    --second-color: black
+    --third-color: white
   &.white
     --current-color: white
     --filter-color: white

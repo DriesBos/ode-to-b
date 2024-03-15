@@ -3,16 +3,16 @@
     <nav>
       <ul class="header-Desktop">
         <li class="hovered">
-          <NuxtLink to="/" class="hovered" tag="li">A —</NuxtLink>
+          <NuxtLink to="/" class="hovered">A —</NuxtLink>
         </li>
         <li class="hovered">
-          <NuxtLink to="/brands" class="hovered" tag="li">For Brands</NuxtLink>
+          <NuxtLink to="/brands" class="hovered">For Brands</NuxtLink>
         </li>
         <li class="hovered">
-          <NuxtLink to="/people'" class="hovered" tag="li">For People</NuxtLink>
+          <NuxtLink to="/people" class="hovered">For People</NuxtLink>
         </li>
         <li class="hovered">
-          <NuxtLink to="/art'" class="hovered" tag="li">For Art</NuxtLink>
+          <NuxtLink to="/art" class="hovered">For Art</NuxtLink>
         </li>
       </ul>
     </nav>
