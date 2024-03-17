@@ -3,7 +3,7 @@
   <section
     v-editable="blok"
     class="buyButtonBlok hovered"
-    :class="{ fullscreen: blok.fullscreen, capslock: blok.capslock }"
+    :class="{ fullscreen: blok.fullscreen }"
   >
     <div class="buyButtonBlok-Item">
 
