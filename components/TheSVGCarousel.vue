@@ -260,7 +260,7 @@ function onScrollOpacity() {
   bottom: 0
   padding: 3.4vw
   overflow: hidden
-  font-family: 'DINBk', Helvetica, Arial, sans-serif
+  font-family: 'DINRg', Helvetica, Arial, sans-serif
   font-size: 5vw
   color: var(--current-color)
   z-index: 899
