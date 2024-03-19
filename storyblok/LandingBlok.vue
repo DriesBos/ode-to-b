@@ -1,8 +1,8 @@
 <template>
   <section v-editable="blok" class="landingItem" :class="{ filter: filtered }">
-    <!-- <div class="img">
-      <img src="/assets/images/bg04.png" />
-    </div> -->
+    <div v-if="isProject" class="img">
+      <img :src="blok.image" />
+    </div>
     <div class="landingItem-Text">
       <h1 v-if="blok.title">{{ blok.title }}</h1>
     </div>
@@ -18,6 +18,11 @@ export default {
     return {
       filtered: true,
     };
+  },
+  computed: {
+    isProject() {
+      return this.$route.params.slug.length === 2;
+    },
   },
   mounted() {
     this.applyFilter();
