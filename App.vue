@@ -12,8 +12,13 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const route = useRoute();
+const nuxtApp = useNuxtApp();
 
 const pageColor = ref('red');
+
+nuxtApp.hook('page:finish', () => {
+  window.scrollTo(0, 0);
+});
 
 watch(
   () => route.fullPath,
