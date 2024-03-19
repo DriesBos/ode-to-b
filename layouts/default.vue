@@ -4,6 +4,5 @@ import TheHeader from '~/components/TheHeader.vue';
     <TheHeader />
     <TheSVGCarousel />
     <slot />
-    <TheFooter />
   </main>
 </template>

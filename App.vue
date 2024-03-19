@@ -1,6 +1,7 @@
 <template>
   <NuxtLayout :class="pageColor">
     <NuxtPage />
+    <TheFooter />
   </NuxtLayout>
 </template>
 
