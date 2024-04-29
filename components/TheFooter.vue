@@ -19,16 +19,11 @@
       </li>
     </ul>
     <ul>
-      <li>Offices</li>
-      <li class="hovered links" @click="toggleFooterModalAmsterdam">
-        {{ general[0].content.amsterdam }}
+      <li>Reach Us</li>
+      <li class="hovered links">
+        <a href="mailto:hi@odetoa.com">hi@odetoa.com</a>
       </li>
-      <li class="hovered links" @click="toggleFooterModalMexico">
-        {{ general[0].content.mexico }}
-      </li>
-      <li class="hovered links" @click="toggleFooterModalGhana">
-        {{ general[0].content.ghana }}
-      </li>
+      <li class="hovered">Amsterdam, Mexico City,<br />Accra (Ghana)</li>
     </ul>
     <ul
       v-if="
@@ -66,11 +61,11 @@
         >
       </li>
     </ul>
-    <ul>
+    <!-- <ul>
       <li>&nbsp;</li>
-      <li class="hovered links" @click="toggleFooterModalTerms">Terms</li>
-      <li class="hovered links" @click="toggleFooterModalMadeby">Made By</li>
-    </ul>
+      <li class="hovered links" @click="toggleFooterModalTerms"></li>
+      <li class="hovered links" @click="toggleFooterModalMadeby"></li>
+    </ul> -->
   </section>
 </template>
 
