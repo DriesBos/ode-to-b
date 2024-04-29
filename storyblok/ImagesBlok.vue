@@ -38,8 +38,8 @@ defineProps({ blok: Object });
       .imageGrid-Item_Placeholder
         position: relative
         overflow: visible
-        background-color: var(--filter-color)
-        transition: background-color $transition-filter
+        // background-color: var(--filter-color)
+        // transition: background-color $transition-filter
         will-change: background-color, transform
         img
           width: 100%
