@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :class="pageColor">
+  <NuxtLayout :name="layoutKey" :class="pageColor">
     <NuxtPage />
     <TheFooter />
   </NuxtLayout>
@@ -17,6 +17,10 @@ const nuxtApp = useNuxtApp();
 
 const pageColor = ref('red');
 const pageFavicon = ref('');
+
+const layoutKey = computed(() => {
+  return route.params.slug.length === 2 ? 'projects' : 'default';
+});
 
 useHead({
   link: () => [{ rel: 'icon', href: pageFavicon.value }],
@@ -74,5 +78,6 @@ function setColor() {
 
 onMounted(() => {
   setColor();
+  console.log('mounted', route);
 });
 </script>
