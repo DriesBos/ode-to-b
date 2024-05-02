@@ -20,7 +20,13 @@
     >
 
     <div class="projectList-Single_Image">
-      <img v-if="blok.image" :src="blok.image" :alt="blok.title" />
+      <NuxtImg
+        v-if="blok.image"
+        :src="`https:${blok.image}`"
+        :alt="blok.title"
+        quality="90"
+        loading="lazy"
+      />
     </div>
   </span>
 </template>
