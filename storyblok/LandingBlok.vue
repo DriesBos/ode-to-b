@@ -1,7 +1,12 @@
 <template>
-  <section v-editable="blok" class="landingItem" :class="{ filter: filtered }">
+  <section v-editable="blok" class="landingItem">
     <div v-if="isProject" class="img">
-      <img :src="blok.image" />
+      <NuxtImg
+        :src="`https:${blok.image}`"
+        :alt="blok.title"
+        quality="90"
+        loading="lazy"
+      />
     </div>
     <div class="landingItem-Text">
       <h1 v-if="blok.title">{{ blok.title }}</h1>
@@ -25,11 +30,11 @@ export default {
     },
   },
   mounted() {
-    this.applyFilter();
-    window.addEventListener('scroll', this.applyFilter);
+    // this.applyFilter();
+    // window.addEventListener('scroll', this.applyFilter);
   },
   destroyed() {
-    window.removeEventListener('scroll', this.applyFilter);
+    // window.removeEventListener('scroll', this.applyFilter);
   },
   methods: {
     applyFilter() {
@@ -84,11 +89,11 @@ export default {
   top: 0
 .page-Project .landingItem
   position: relative
-  background-color: rgba(0,0,0,0)
-  transition: background-color $transition-filter
-  will-change: background-color
+  // background-color: rgba(0,0,0,0)
+  // transition: background-color $transition-filter
+  // will-change: background-color
   img
     mix-blend-mode: multiply
-  &.filter
-    background-color: var(--filter-color)
+  // &.filter
+  //   background-color: var(--filter-color)
 </style>
