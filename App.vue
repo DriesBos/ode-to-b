@@ -17,6 +17,17 @@ const nuxtApp = useNuxtApp();
 
 const pageColor = ref('red');
 
+useSeoMeta({
+  title: 'Ode to A',
+  ogTitle: 'My Amazing Site',
+  description:
+    'Ode to A is a vision, an attitude, an art, an agency. We stand up for those who choose fire. The ones who are ready and willing to express their their most powerful essence into presence. With conviction, with confidence, with full ownership.',
+  ogDescription:
+    'Ode to A is a vision, an attitude, an art, an agency. We stand up for those who choose fire. The ones who are ready and willing to express their their most powerful essence into presence. With conviction, with confidence, with full ownership.',
+  ogImage:
+    'https://a.storyblok.com/f/73133/5334x7997/a48549f3b6/skins-brand-image-04-by-michael-oliver-love.jpg',
+});
+
 nuxtApp.hook('page:finish', () => {
   window.scrollTo(0, 0);
 });
