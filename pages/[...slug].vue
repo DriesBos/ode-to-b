@@ -9,16 +9,4 @@ const story = await useAsyncStoryblok(
   slug && slug.length > 0 ? slug.join('/') : 'home',
   { version: 'draft' }
 );
-
-onBeforeMount(() => {
-  if (slug.length == 2 && slug[1] !== '') {
-    definePageMeta({
-      layout: 'projects',
-    });
-  } else {
-    definePageMeta({
-      layout: 'default',
-    });
-  }
-});
 </script>
