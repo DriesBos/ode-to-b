@@ -19,7 +19,7 @@ const pageColor = ref('red');
 
 useSeoMeta({
   title: 'Ode to A',
-  ogTitle: 'My Amazing Site',
+  ogTitle: 'Ode to A',
   description:
     'Ode to A is a vision, an attitude, an art, an agency. We stand up for those who choose fire. The ones who are ready and willing to express their their most powerful essence into presence. With conviction, with confidence, with full ownership.',
   ogDescription:
