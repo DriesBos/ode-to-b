@@ -16,6 +16,11 @@ const route = useRoute();
 const nuxtApp = useNuxtApp();
 
 const pageColor = ref('red');
+const pageFavicon = ref('');
+
+useHead({
+  link: () => [{ rel: 'icon', href: pageFavicon.value }],
+});
 
 useSeoMeta({
   title: 'Ode to A',
@@ -40,30 +45,34 @@ watch(
 );
 
 function setColor() {
-  if (route.path == '/') {
-    pageColor.value = 'red';
-  } else if (route.params.slug[0] === 'brands') {
-    pageColor.value = 'blue';
-  } else if (route.params.slug[0] === 'art') {
-    pageColor.value = 'red';
-  } else if (route.params.slug[0] === 'people') {
-    pageColor.value = 'black';
-  } else {
-    pageColor.value = 'black';
+  const timestamp = Date.now();
+  switch (route.path) {
+    case '/':
+      pageColor.value = 'red';
+      pageFavicon.value = `/icon-red.svg?${timestamp}`;
+      break;
+    case '/brands':
+    case '/brands/':
+      pageColor.value = 'blue';
+      pageFavicon.value = `/icon-blue.svg?${timestamp}`;
+      break;
+    case '/art':
+    case '/art/':
+      pageColor.value = 'red';
+      pageFavicon.value = `/icon-red.svg?${timestamp}`;
+      break;
+    case '/people':
+    case '/people/':
+      pageColor.value = 'black';
+      pageFavicon.value = `/icon-black.svg?${timestamp}`;
+      break;
+    default:
+      pageColor.value = 'black';
+      pageFavicon.value = `/icon-black.svg?${timestamp}`;
   }
 }
 
 onMounted(() => {
-  // setInterval(setColor, 10000);
   setColor();
 });
-
-// let colorIndex = 0;
-// const colors = ['black', 'blue', 'red', 'ghana', 'black'];
-
-// function setColor() {
-//   let color = colors[colorIndex];
-//   colorIndex = (colorIndex + 1) % colors.length;
-//   return (pageColor.value = color);
-// }
 </script>
