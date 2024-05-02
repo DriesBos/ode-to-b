@@ -24,6 +24,7 @@
         v-if="blok.image"
         :src="`https:${blok.image}`"
         :alt="blok.title"
+        provider="storyblok"
         quality="90"
         loading="lazy"
       />

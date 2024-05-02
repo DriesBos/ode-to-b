@@ -12,6 +12,7 @@
               class="portrait footer-Image"
               :src="image.filename"
               alt=""
+              provider="storyblok"
               quality="90"
               loading="lazy"
             />

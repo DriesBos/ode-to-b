@@ -5,6 +5,7 @@
         v-if="blok.graphic"
         :src="`https:${blok.graphic}`"
         alt=""
+        provider="storyblok"
         quality="90"
         loading="lazy"
       />
