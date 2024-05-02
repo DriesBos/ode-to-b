@@ -67,7 +67,6 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const router = useRoute();
 
@@ -116,7 +115,7 @@ function setScrollTrigger() {
     html.offsetHeight
   );
   gsap.to(path, {
-    attr: { startOffset: -docHeight / 2 },
+    attr: { startOffset: -docHeight / 5 }, // Speed of the text
     ease: 'none',
     scrollTrigger: {
       scrub: 0,
@@ -149,7 +148,6 @@ function onScrollOpacity() {
   overflow: hidden
   font-family: 'DINRg', Helvetica, Arial, sans-serif
   font-size: 5vw
-  color: var(--current-color)
   z-index: 899
   pointer-events: none
   opacity: 0 // Changed via JavaScript
