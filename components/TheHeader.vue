@@ -65,23 +65,23 @@
     li:nth-child(4)
       bottom: 0
       right: 0
-  .header-Single
-    li
-      position: absolute
-      text-transform: uppercase
-      pointer-events: auto
-      top: 0
-      left: 0
-      padding: var(--spacing-three)
-      svg
-        transform: rotate(180deg)
-        height: 2em
-        fill: var(--current-color)
-        stroke: rgba(0,0,0,0)
-        transition: fill $transition-scroll-fade, stroke $transition-scroll-fade
-        overflow: visible
-  .nuxt-link-exact-active
-    text-decoration: none
+  // .header-Single
+  //   li
+  //     position: absolute
+  //     text-transform: uppercase
+  //     pointer-events: auto
+  //     top: 0
+  //     left: 0
+  //     padding: var(--spacing-three)
+  //     svg
+  //       transform: rotate(180deg)
+  //       height: 2em
+  //       fill: var(--current-color)
+  //       stroke: rgba(0,0,0,0)
+  //       transition: fill $transition-scroll-fade, stroke $transition-scroll-fade
+  //       overflow: visible
+  // .nuxt-link-exact-active
+  //   text-decoration: none
   // &.yellow
     // li
     //   color: rgba($color-yellow, 0)

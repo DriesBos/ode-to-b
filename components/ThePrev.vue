@@ -1,15 +1,39 @@
 <template>
-  <header class="header">
+  <header class="the-Prev">
     <nav>
-      <ul class="header-Single">
+      <ul>
         <li @click="handleClick">
-          <svg viewBox="0 0 46.65 37.7">
+          <!-- <svg viewBox="0 0 46.65 37.7">
             <g data-name="Laag 2">
               <path
                 d="M27.8,37.7H17.55l15.2-15H0V15H32.75L17.55,0H27.8L46.65,18.85Z"
                 data-name="Laag 1"
               />
             </g>
+          </svg> -->
+
+          <svg
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 25 26"
+          >
+            <g clip-path="url(#a)">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M24 13.986H2.822l9.602 9.591-1.413 1.412L.409 14.4l-.001.001L-1 12.996l.002-.002H-1l1.413-1.412h.002L11.011 1l1.407 1.406-9.596 9.584H24v1.996Z"
+                fill="currentColor"
+              />
+            </g>
+            <!-- <defs>
+              <clipPath id="a">
+                <path
+                  fill="#fff"
+                  transform="translate(0 .5)"
+                  d="M0 0h25v25H0z"
+                />
+              </clipPath>
+            </defs> -->
           </svg>
         </li>
       </ul>
@@ -47,63 +71,22 @@ function handleClick() {
 </script>
 
 <style lang="sass">
-.header
+.the-Prev
   position: fixed
   top: 0
   left: 0
-  bottom: 0
-  width: 100%
-  z-index: 699
-  pointer-events: none
-  nav
-    width: 100%
-    height: 100%
-    padding: 5vw
-  .header-Desktop
-    position: relative
-    width: 100%
-    height: 100%
-    display: flex
-    justify-content: flex-end
-    li
-      position: absolute
-      // cursor: pointer
-      text-transform: uppercase
-      line-height: 1
-      pointer-events: auto
-    li:nth-child(1)
-      top: 0
-      left: 0
-    li:nth-child(2)
-      top: 0
-      right: 0
-      transform: rotate(90deg) translateY(-4em)
-      transform-origin: 15% 100%
-    li:nth-child(3)
-      bottom: 0
-      left: 0
-      transform: rotate(90deg) translateY(4em)
-      transform-origin: 85% 0%
-    li:nth-child(4)
-      bottom: 0
-      right: 0
-  .header-Single
-    li
-      position: absolute
-      text-transform: uppercase
-      pointer-events: auto
-      top: 0
-      left: 0
-      padding: var(--spacing-three)
-      svg
-        transform: rotate(180deg)
-        height: 2em
-        fill: var(--current-color)
-        stroke: rgba(0,0,0,0)
-        transition: fill $transition-scroll-fade, stroke $transition-scroll-fade
-        overflow: visible
-  .nuxt-link-exact-active
-    text-decoration: none
+  z-index: 999
+  li
+    pointer-events: auto
+    padding: calc(2 * #{var(--nav-spacing)})
+    border: $test-border
+    cursor: pointer
+    svg
+      // transform: rotate(180deg)
+      height: 1.5rem
+      fill: var(--current-color)
+      // transition: fill $transition-scroll-fade, stroke $transition-scroll-fade
+      // overflow: visible
   // &.yellow
     // li
     //   color: rgba($color-yellow, 0)
