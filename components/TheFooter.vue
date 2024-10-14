@@ -168,10 +168,11 @@ general.value = data.stories;
 
 <style lang="sass">
 .footer
-  position: fixed
-  left: 0
-  right: 0
-  bottom: 0
+  position: relative
+  // position: fixed
+  // left: 0
+  // right: 0
+  // bottom: 0
   z-index: 997
   display: flex
   flex-direction: row
@@ -183,10 +184,10 @@ general.value = data.stories;
   border-top: 1px solid var(--current-color)
   padding: calc(3 * #{var(--nav-spacing)})
   overflow: hidden
-  transform: translateY(100%)
-  transition: transform $transition-slide
-  &.visible
-    transform: translateY(0)
+  // transform: translateY(100%)
+  // transition: transform $transition-slide
+  // &.visible
+  //   transform: translateY(0)
   ul
     display: flex
     flex-direction: column
