@@ -193,12 +193,11 @@ general.value = data.stories;
     flex-direction: column
     align-items: flex-start
     flex: 1 1 0px
-    border: $test-border
     // @media screen and ( min-width: $breakpoint-mobile)
     //   flex-grow: 1
-    // @media screen and ( max-width: $breakpoint-mobile)
-    //   flex-basis: 50%
-    //   padding-bottom: var(--spacing-three)
+    @media screen and ( max-width: $breakpoint-mobile)
+      flex-basis: 50%
+      padding-bottom: var(--spacing-three)
     li
       font-size: 1.33rem
       line-height: 1.27
@@ -208,6 +207,16 @@ general.value = data.stories;
         font-weight: 400
       &.links, a
         font-weight: 300
+    &:nth-child(1)
+      @media screen and ( max-width: $breakpoint-mobile)
+        order: 1
+    &:nth-child(2)
+      @media screen and ( max-width: $breakpoint-mobile)
+        order: 3
+    &:nth-child(3)
+      @media screen and ( max-width: $breakpoint-mobile)
+        order: 2
+
         // color: rgba(0,0,0,0) !important
         // -webkit-text-stroke: 1px var(--second-color)
         // transition: color $transition-hover, stroke $transition-hover
