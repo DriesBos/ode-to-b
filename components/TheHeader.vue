@@ -31,32 +31,37 @@
   nav
     width: 100%
     height: 100%
-    padding: 5vw
+    padding: calc(2 * #{var(--nav-spacing)})
+    border: $test-border
   .header-Desktop
     position: relative
     width: 100%
     height: 100%
     display: flex
     justify-content: flex-end
+    border: $test-border
     li
       position: absolute
       // cursor: pointer
       text-transform: uppercase
-      line-height: 1
       pointer-events: auto
+      line-height: 0.8
+      border: $test-border
+      a
+        font-weight: 300
     li:nth-child(1)
       top: 0
       left: 0
     li:nth-child(2)
       top: 0
       right: 0
-      transform: rotate(90deg) translateY(-4em)
-      transform-origin: 15% 100%
+      transform: rotate(90deg) translateX(100%)
+      transform-origin: top right
     li:nth-child(3)
       bottom: 0
       left: 0
-      transform: rotate(90deg) translateY(4em)
-      transform-origin: 85% 0%
+      transform: rotate(90deg) translateX(-100%)
+      transform-origin: bottom left
     li:nth-child(4)
       bottom: 0
       right: 0

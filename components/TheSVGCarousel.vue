@@ -144,10 +144,10 @@ function onScrollOpacity() {
   right: 0
   top: 0
   bottom: 0
-  padding: 3.4vw
+  padding: var(--nav-spacing)
   overflow: hidden
-  font-family: 'DINRg', Helvetica, Arial, sans-serif
-  font-size: 5vw
+  font-weight: 300
+  font-size: 4.3vw
   z-index: 899
   pointer-events: none
   opacity: 0 // Changed via JavaScript
@@ -157,12 +157,13 @@ function onScrollOpacity() {
     width: 100%
     overflow: visible
     fill: currentColor
-    stroke: rgba(0,0,0,0)
+    // stroke: rgba(0,0,0,0)
     transition: fill $transition-carousel, stroke $transition-carousel
-    &.active
-      fill: currentColor
-      stroke: rgba(0,0,0,0)
-    &.inactive
-      fill: rgba(0,0,0,0)
-      stroke: currentColor
+    border: $test-border
+    // &.active
+    //   fill: currentColor
+    //   stroke: rgba(0,0,0,0)
+    // &.inactive
+    //   fill: rgba(0,0,0,0)
+    //   stroke: currentColor
 </style>

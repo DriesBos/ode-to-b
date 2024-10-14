@@ -23,6 +23,7 @@
       <li class="hovered links">
         <a href="mailto:hi@odetoa.com">hi@odetoa.com</a>
       </li>
+      <br />
       <li class="hovered">Amsterdam, Mexico City,<br />Accra (Ghana)</li>
     </ul>
     <ul
@@ -70,7 +71,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
+
 const general = ref(null);
+
+const scrollPosition = ref(0);
+const clientHeight = ref(0);
+const totalScrollableHeight = ref(0);
+
+const isVisible = ref(false);
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/', {
   version: 'draft',
@@ -78,105 +87,130 @@ const { data } = await storyblokApi.get('cdn/stories/', {
   is_startpage: false,
 });
 
+const updateDimensions = () => {
+  clientHeight.value = window.innerHeight;
+  totalScrollableHeight.value = document.documentElement.scrollHeight;
+};
+
+const handleScroll = () => {
+  scrollPosition.value = window.scrollY;
+  if (
+    scrollPosition.value + clientHeight.value >=
+    totalScrollableHeight.value
+  ) {
+    isVisible.value = true;
+  } else {
+    isVisible.value = false;
+  }
+};
+
+onMounted(() => {
+  updateDimensions();
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', updateDimensions);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('resize', updateDimensions);
+});
+
+// watch(scrollPosition, (newValue, oldValue) => {});
+
 general.value = data.stories;
 
-const isVisible = ref(false);
-
-function toggleFooterModalAmsterdam() {
-  this.$emit('update', {
-    title: general[0].content.amsterdam,
-    text: general[0].content.amsterdam_text,
-  });
-}
-function toggleFooterModalMexico() {
-  this.$emit('update', {
-    title: general[0].content.mexico,
-    text: general[0].content.mexico_text,
-  });
-}
-function toggleFooterModalGhana() {
-  this.$emit('update', {
-    title: general[0].content.ghana,
-    text: general[0].content.ghana_text,
-  });
-}
-function toggleFooterModalTerms() {
-  this.$emit('update', {
-    title: general[0].content.terms_title,
-    text: general[0].content.terms_text,
-  });
-}
-function toggleFooterModalMadeby() {
-  this.$emit('update', {
-    title: general[0].content.madeby_title,
-    text: general[0].content.madeby_text,
-  });
-}
-function setVisible() {
-  const currentScrollPosition =
-    window.pageYOffset || document.documentElement.scrollTop;
-  if (currentScrollPosition > document.body.clientHeight - window.innerHeight) {
-    this.isVisible = true;
-  } else {
-    this.isVisible = false;
-  }
-}
-function TheFooterCursor() {
-  let cursor = document.querySelector('.cursor');
-  cursor.classList.add('thefootercursor');
-}
-function removeTheFooterCursor() {
-  let cursor = document.querySelector('.cursor');
-  cursor.classList.remove('thefootercursor');
-}
+// function toggleFooterModalAmsterdam() {
+//   this.$emit('update', {
+//     title: general[0].content.amsterdam,
+//     text: general[0].content.amsterdam_text,
+//   });
+// }
+// function toggleFooterModalMexico() {
+//   this.$emit('update', {
+//     title: general[0].content.mexico,
+//     text: general[0].content.mexico_text,
+//   });
+// }
+// function toggleFooterModalGhana() {
+//   this.$emit('update', {
+//     title: general[0].content.ghana,
+//     text: general[0].content.ghana_text,
+//   });
+// }
+// function toggleFooterModalTerms() {
+//   this.$emit('update', {
+//     title: general[0].content.terms_title,
+//     text: general[0].content.terms_text,
+//   });
+// }
+// function toggleFooterModalMadeby() {
+//   this.$emit('update', {
+//     title: general[0].content.madeby_title,
+//     text: general[0].content.madeby_text,
+//   });
+// }
+// function TheFooterCursor() {
+//   let cursor = document.querySelector('.cursor');
+//   cursor.classList.add('thefootercursor');
+// }
+// function removeTheFooterCursor() {
+//   let cursor = document.querySelector('.cursor');
+//   cursor.classList.remove('thefootercursor');
+// }
 </script>
 
 <style lang="sass">
 .footer
-  // position: fixed
-  // left: 0
-  // right: 0
-  // bottom: 0
+  position: fixed
+  left: 0
+  right: 0
+  bottom: 0
   z-index: 997
   display: flex
   flex-direction: row
   flex-wrap: wrap
   justify-content: flex-start
   align-items: flex-start
-  // background: black
-  // color: white
-  background: var(--current-color)
-  color: var(--second-color)
+  background: white
+  color: var(--current-color)
+  border-top: 1px solid var(--current-color)
   padding: var(--spacing-three)
   overflow: hidden
-  // opacity: 0
-  // pointer-events: none
-  // &.visible
-  //   opacity: 1
-  //   pointer-events: auto
+  transform: translateY(100%)
+  transition: transform $transition-slide
+  &.visible
+    transform: translateY(0)
   ul
     display: flex
     flex-direction: column
     align-items: flex-start
-    @media screen and ( min-width: $breakpoint-mobile)
-      flex-grow: 1
-    @media screen and ( max-width: $breakpoint-mobile)
-      flex-basis: 50%
-      padding-bottom: var(--spacing-three)
+    flex: 1 1 0px
+    // @media screen and ( min-width: $breakpoint-mobile)
+    //   flex-grow: 1
+    // @media screen and ( max-width: $breakpoint-mobile)
+    //   flex-basis: 50%
+    //   padding-bottom: var(--spacing-three)
     li
       font-size: 1.33em
       line-height: 1.27
-      // text-transform: uppercase
+      &:first-child
+        text-transform: uppercase
+        font-family: "din-2014", sans-serif
+        font-weight: 400
+        font-style: normal
       &.links
-        color: rgba(0,0,0,0) !important
-        -webkit-text-stroke: 1px var(--second-color)
-        transition: color $transition-hover, stroke $transition-hover
-        flex-shrink: 0
-        a
-          -webkit-text-stroke: 1px var(--second-color)
-        &:hover
-          @media (hover: hover)
-            color: var(--second-color) !important
+        font-family: "din-2014", sans-serif
+        font-weight: 300
+        font-style: normal
+        // color: rgba(0,0,0,0) !important
+        // -webkit-text-stroke: 1px var(--second-color)
+        // transition: color $transition-hover, stroke $transition-hover
+        // flex-shrink: 0
+        // a
+        //   -webkit-text-stroke: 1px var(--second-color)
+        // &:hover
+        //   @media (hover: hover)
+        //     color: var(--second-color) !important
 
 
   &-Form

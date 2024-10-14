@@ -24,6 +24,9 @@ export default defineNuxtConfig({
           content: 'black-translucent',
         },
       ],
+      link: [
+        { rel: 'stylesheet', href: 'https://use.typekit.net/uvs3yto.css' },
+      ],
     },
   },
 
