@@ -23,6 +23,13 @@
       <li class="hovered links">
         <a href="mailto:hi@odetoa.com">hi@odetoa.com</a>
       </li>
+      <li class="hovered links">
+        <a
+          href="https://wa.me/31630108213?text=Hi%20Ode%20to%20A!"
+          target="_blank"
+          >whatsapp</a
+        >
+      </li>
       <br />
       <li class="hovered">Amsterdam, Mexico City,<br />Accra (Ghana)</li>
     </ul>
@@ -174,7 +181,7 @@ general.value = data.stories;
   background: white
   color: var(--current-color)
   border-top: 1px solid var(--current-color)
-  padding: var(--spacing-three)
+  padding: calc(3 * #{var(--nav-spacing)})
   overflow: hidden
   transform: translateY(100%)
   transition: transform $transition-slide
@@ -185,23 +192,21 @@ general.value = data.stories;
     flex-direction: column
     align-items: flex-start
     flex: 1 1 0px
+    border: $test-border
     // @media screen and ( min-width: $breakpoint-mobile)
     //   flex-grow: 1
     // @media screen and ( max-width: $breakpoint-mobile)
     //   flex-basis: 50%
     //   padding-bottom: var(--spacing-three)
     li
-      font-size: 1.33em
+      font-size: 1.33rem
       line-height: 1.27
+      font-weight: 300
       &:first-child
         text-transform: uppercase
-        font-family: "din-2014", sans-serif
         font-weight: 400
-        font-style: normal
-      &.links
-        font-family: "din-2014", sans-serif
+      &.links, a
         font-weight: 300
-        font-style: normal
         // color: rgba(0,0,0,0) !important
         // -webkit-text-stroke: 1px var(--second-color)
         // transition: color $transition-hover, stroke $transition-hover
@@ -213,60 +218,61 @@ general.value = data.stories;
         //     color: var(--second-color) !important
 
 
-  &-Form
-    margin-top: var(--spacing-two)
-    display: flex
-    flex-direction: column
-    align-items: flex-start
-    color: currentColor
-    input
-      width: 100%
-      border-bottom: 2px solid currentColor
-      border-radius: 0
-      text-transform: uppercase
-      &::placeholder
-        color: currentColor
-        text-transform: uppercase
-    button
-      display: flex
-      align-items: center
-      align-self: flex-start
-      margin-top: var(--spacing-two)
-      svg
-        height: 2em
-        fill: currentColor
-  &-Buttons
-    display: flex
-    flex-grow: 1
-    justify-content: space-between
-    align-items: flex-end
-    width: 100%
-    margin-top: var(--spacing-three)
-    @media screen and ( max-width: $breakpoint-mobile)
-      flex-direction: column
-    button
-      display: flex
-      align-items: center
-      align-self: flex-start
-      svg
-        height: 2em
-        fill: currentColor
-    &_Links
-      display: flex
-      flex-wrap: wrap
-      h4, h5, a
-        color: rgba(0,0,0,0) !important
-        -webkit-text-stroke: 1px var(--second-color)
-        transition: color $transition-hover, stroke $transition-hover
-        font-size: 1.33em
-        line-height: 1
-        flex-shrink: 0
-        margin-top: var(--spacing-two)
-        &:hover
-          @media (hover: hover)
-            color: var(--second-color) !important
-      a, h5
-        margin-right: var(--spacing-two)
-  .markdown
-    color: var(--second-color)
+  // &-Form
+  //   margin-top: var(--spacing-two)
+  //   display: flex
+  //   flex-direction: column
+  //   align-items: flex-start
+  //   color: currentColor
+  //   input
+  //     width: 100%
+  //     border-bottom: 2px solid currentColor
+  //     border-radius: 0
+  //     text-transform: uppercase
+  //     &::placeholder
+  //       color: currentColor
+  //       text-transform: uppercase
+  //   button
+  //     display: flex
+  //     align-items: center
+  //     align-self: flex-start
+  //     margin-top: var(--spacing-two)
+  //     svg
+  //       height: 2em
+  //       fill: currentColor
+
+  // &-Buttons
+  //   display: flex
+  //   flex-grow: 1
+  //   justify-content: space-between
+  //   align-items: flex-end
+  //   width: 100%
+  //   margin-top: var(--spacing-three)
+  //   @media screen and ( max-width: $breakpoint-mobile)
+  //     flex-direction: column
+  //   button
+  //     display: flex
+  //     align-items: center
+  //     align-self: flex-start
+  //     svg
+  //       height: 2em
+  //       fill: currentColor
+  //   &_Links
+  //     display: flex
+  //     flex-wrap: wrap
+  //     h4, h5, a
+  //       color: rgba(0,0,0,0) !important
+  //       -webkit-text-stroke: 1px var(--second-color)
+  //       transition: color $transition-hover, stroke $transition-hover
+  //       font-size: 1.33em
+  //       line-height: 1
+  //       flex-shrink: 0
+  //       margin-top: var(--spacing-two)
+  //       &:hover
+  //         @media (hover: hover)
+  //           color: var(--second-color) !important
+  //     a, h5
+  //       margin-right: var(--spacing-two)
+  // .markdown
+  //   color: var(--second-color)
 </style>
