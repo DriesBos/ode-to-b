@@ -146,7 +146,7 @@ function onScrollOpacity() {
   bottom: 0
   padding: var(--nav-spacing)
   overflow: hidden
-  font-weight: 300
+  font-weight: 200
   font-size: 4.3vw
   z-index: 899
   pointer-events: none
