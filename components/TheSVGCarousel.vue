@@ -74,12 +74,12 @@ onMounted(() => {
   setRatioAndPath();
   setScrollTrigger();
   window.addEventListener('resize', setRatioAndPath);
-  window.addEventListener('scroll', onScrollOpacity);
+  // window.addEventListener('scroll', onScrollOpacity);
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', setRatioAndPath);
-  window.removeEventListener('scroll', onScrollOpacity);
+  // window.removeEventListener('scroll', onScrollOpacity);
 });
 
 function setRatioAndPath() {
@@ -123,17 +123,17 @@ function setScrollTrigger() {
   });
 }
 
-function onScrollOpacity() {
-  let text = document.getElementById('theSvg');
-  let position = document.body.scrollTop || document.documentElement.scrollTop;
-  if (text && position > window.innerHeight) {
-    text.classList.add('inactive');
-    text.classList.remove('active');
-  } else if (text) {
-    text.classList.add('active');
-    text.classList.remove('inactive');
-  }
-}
+// function onScrollOpacity() {
+//   let text = document.getElementById('theSvg');
+//   let position = document.body.scrollTop || document.documentElement.scrollTop;
+//   if (text && position > window.innerHeight) {
+//     text.classList.add('inactive');
+//     text.classList.remove('active');
+//   } else if (text) {
+//     text.classList.add('active');
+//     text.classList.remove('inactive');
+//   }
+// }
 </script>
 
 <style lang="sass">
