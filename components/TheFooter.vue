@@ -192,12 +192,12 @@ general.value = data.stories;
     li
       font-size: 1.33rem
       line-height: 1.27
-      font-weight: 300
+      font-weight: 400
       &:first-child
         text-transform: uppercase
-        font-weight: 400
-      &.links, a
         font-weight: 300
+      &.links, a
+        font-weight: 500
     &:nth-child(1)
       @media screen and ( max-width: $breakpoint-mobile)
         order: 1
