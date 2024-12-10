@@ -3,15 +3,6 @@
     <nav>
       <ul>
         <li @click="handleClick">
-          <!-- <svg viewBox="0 0 46.65 37.7">
-            <g data-name="Laag 2">
-              <path
-                d="M27.8,37.7H17.55l15.2-15H0V15H32.75L17.55,0H27.8L46.65,18.85Z"
-                data-name="Laag 1"
-              />
-            </g>
-          </svg> -->
-
           <svg
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -25,15 +16,6 @@
                 fill="currentColor"
               />
             </g>
-            <!-- <defs>
-              <clipPath id="a">
-                <path
-                  fill="#fff"
-                  transform="translate(0 .5)"
-                  d="M0 0h25v25H0z"
-                />
-              </clipPath>
-            </defs> -->
           </svg>
         </li>
       </ul>
@@ -45,29 +27,12 @@
 const router = useRouter();
 
 function handleClick() {
-  router.back();
+  if (window.history.state.back === null) {
+    router.push('/');
+  } else {
+    router.go(-1);
+  }
 }
-// export default {
-//   data() {
-//     return {
-//       arrowFilled: true,
-//     };
-//   },
-//   mounted() {
-//     console.log(this.$route);
-//   },
-//   methods: {
-//     singlePageArrowColor() {
-//       const currentScrollPosition =
-//         window.pageYOffset || document.documentElement.scrollTop;
-//       if (currentScrollPosition < window.innerHeight * 0.3) {
-//         this.arrowFilled = true;
-//       } else {
-//         this.arrowFilled = false;
-//       }
-//     },
-//   },
-// };
 </script>
 
 <style lang="sass">
@@ -82,57 +47,6 @@ function handleClick() {
     border: $test-border
     cursor: pointer
     svg
-      // transform: rotate(180deg)
       height: 1.5rem
       fill: var(--current-color)
-      // transition: fill $transition-scroll-fade, stroke $transition-scroll-fade
-      // overflow: visible
-  // &.yellow
-    // li
-    //   color: rgba($color-yellow, 0)
-    //   -webkit-text-stroke: 1px rgba($color-yellow, 1)
-    //   &.nuxt-link-exact-active,
-    //     color: $color-yellow
-    //     -webkit-text-stroke: 1px rgba($color-yellow, 0)
-    //   &:hover
-    //     @media (hover: hover)
-    //       color: $color-yellow
-    //       -webkit-text-stroke: 1px rgba($color-yellow, 0)
-  // &.blue
-  //   li
-  //     color: rgba($color-blue, 0)
-  //     -webkit-text-stroke: 1px rgba($color-blue, 1)
-  //     &.nuxt-link-exact-active,
-  //       color: $color-blue
-  //       -webkit-text-stroke: 1px rgba($color-blue, 0)
-  //     &:hover
-  //       @media (hover: hover)
-  //         color: $color-blue
-  //         -webkit-text-stroke: 1px rgba($color-blue, 0)
-  //     svg
-  //       fill: $color-blue
-  // &.red
-    // li
-    //   color: rgba($color-red, 0)
-    //   -webkit-text-stroke: 1px rgba($color-red, 1)
-    //   &.nuxt-link-exact-active,
-    //     color: $color-red
-    //     -webkit-text-stroke: 1px rgba($color-red, 0)
-    //   &:hover
-    //     @media (hover: hover)
-    //       color: $color-red
-    //       -webkit-text-stroke: 1px rgba($color-red, 0)
-    //   svg
-    //     fill: $color-red
-  // &.white
-  //   li
-  //     color: rgba(white, 0)
-  //     -webkit-text-stroke: 1px rgba(white, 1)
-  //     &.nuxt-link-exact-active,
-  //       color: white
-  //       -webkit-text-stroke: 1px rgba(white, 0)
-  //     &:hover
-  //       @media (hover: hover)
-  //         color: white
-  //         -webkit-text-stroke: 1px rgba(white, 0)
 </style>
