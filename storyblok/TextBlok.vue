@@ -6,17 +6,8 @@
     :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }"
   >
   <div class="graphic" :class="blok.graphic_alignment">
-      <!-- <img
-        v-if="blok.graphic"
-        class="skewGraphic"
-        :src="`https:${blok.graphic}`"
-        alt=""
-        quality="90"
-        loading="lazy"
-      /> -->
       <NuxtImg
         v-if="blok.graphic"
-        class="skewGraphic"
         :src="blok.graphic"
         alt=""
         provider="storyblok"

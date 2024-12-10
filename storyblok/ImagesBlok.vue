@@ -4,7 +4,7 @@
       <li
         v-for="image in blok.image"
         :key="image.filename"
-        class="imageGrid-Item skewElem"
+        class="imageGrid-Item"
       >
         <div class="imageGrid-Item_Placeholder">
           <div>
@@ -48,8 +48,8 @@ defineProps({ blok: Object });
       .imageGrid-Item_Placeholder
         position: relative
         overflow: visible
-        // background-color: var(--filter-color)
-        // transition: background-color $transition-filter
+        background-color: var(--filter-color)
+        transition: background-color $transition-filter
         will-change: background-color, transform
         img
           width: 100%
@@ -57,7 +57,7 @@ defineProps({ blok: Object });
           overflow: visible
           mix-blend-mode: multiply
         &.filter
-          background-color: rgba(0,0,0,0)
+          background-color: var(--filter-color)
     @for $i from 1 through 100
       li:nth-child(#{$i})
         .imageGrid-Item_Placeholder
