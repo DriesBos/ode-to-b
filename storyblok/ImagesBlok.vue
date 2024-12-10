@@ -9,7 +9,7 @@
         <div class="imageGrid-Item_Placeholder">
           <div>
             <NuxtImg
-              class="portrait footer-Image"
+              class="portrait footer-Image imageGrid-Item_Image"
               :src="image.filename"
               alt=""
               provider="storyblok"
@@ -24,6 +24,27 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+
+onMounted(() => {
+  gsap.utils.toArray('.imageGrid-Item_Image').forEach((image) => {
+    gsap.fromTo(
+      image,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: image,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+        },
+      }
+    );
+  });
+});
+
 defineProps({ blok: Object });
 </script>
 
@@ -55,7 +76,7 @@ defineProps({ blok: Object });
           width: 100%
           height: auto
           overflow: visible
-          mix-blend-mode: multiply
+          opacity: 0
         &.filter
           background-color: var(--filter-color)
     @for $i from 1 through 100
