@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const route = useRoute();
 const nuxtApp = useNuxtApp();
 
-const pageColor = ref('red');
+const pageColor = ref('black');
 const pageFavicon = ref('');
 
 const layoutKey = computed(() => {
@@ -45,6 +45,7 @@ watch(
   () => route.fullPath,
   () => {
     setColor();
+    console.log('watched route');
   }
 );
 
@@ -54,30 +55,35 @@ function setColor() {
     case '/':
       pageColor.value = 'red';
       pageFavicon.value = `/icon-red.svg?${timestamp}`;
+      console.log('black');
       break;
     case '/brands':
     case '/brands/':
       pageColor.value = 'blue';
       pageFavicon.value = `/icon-blue.svg?${timestamp}`;
+      console.log('blue');
       break;
     case '/art':
     case '/art/':
       pageColor.value = 'red';
       pageFavicon.value = `/icon-red.svg?${timestamp}`;
+      console.log('red');
       break;
     case '/people':
     case '/people/':
       pageColor.value = 'black';
       pageFavicon.value = `/icon-black.svg?${timestamp}`;
+      console.log('black');
       break;
     default:
       pageColor.value = 'black';
       pageFavicon.value = `/icon-black.svg?${timestamp}`;
+      console.log('black');
   }
 }
 
 onMounted(() => {
   setColor();
-  console.log('mounted', route);
+  console.log('mounted');
 });
 </script>

@@ -1,26 +1,16 @@
-// OPTIONS
-// .yellow
-//   color: $color-yellow
-//   .footerform
-//     color: black
+
 .blue
   color: $color-blue
 .red
   color: $color-red
-  .footerform
-    color: white
 .black
   color: black
 .ghana
   color: $color-ghana
-  .footerform
-    color: black
 .grey
   color: grey
 .white, .view-People
   color: white
-  .footerform
-    color: black
 .view-Message
   background: white
   color: black
@@ -56,12 +46,6 @@
     transform: translate(-10%, -10%)
     transition: color $transition-hover
     color: currentColor
-  &.footerformcursor
-    color: var(--second-color)
-  &.thefootercursor
-    color: var(--second-color)
-  &.footermodal
-    color: black
 
   @media ( hover: none )
     display: none
@@ -74,11 +58,8 @@
     width: 0px
     background: transparent
 
-main, input, .button, button, svg, a
-  // cursor: none
-
-// main
-  // transition: $transition-page-color all
+main
+  transition: color .165s linear
 
 section
   position: relative
