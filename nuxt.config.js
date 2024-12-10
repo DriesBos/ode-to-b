@@ -67,6 +67,13 @@ export default defineNuxtConfig({
     },
   },
 
+  gsap: {
+    extraPlugins: {
+      scrollTrigger: true,
+      scrollTo: true,
+    },
+  },
+
   build: {
     transpile: ['gsap'],
   },

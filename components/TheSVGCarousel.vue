@@ -1,6 +1,6 @@
 <template>
   <!-- prettier-ignore -->
-  <div id="carousel" class="svg-container">
+  <div id="carousel" class="svg-container" r>
     <svg
       id="theSvg"
       xmlns="http://www.w3.org/2000/svg"
@@ -27,37 +27,7 @@
           startOffset="0"
           lengthAdjust="spacingAndGlyphs"
         >
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO
-          A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE
-          TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
-          ODE TO A ODE TO A ODE TO A ODE TO A ODE TO A
+          {{ repeatedText }}
         </textPath>
       </text>
     </svg>
@@ -65,21 +35,27 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, onUpdated, ref } from 'vue';
 import gsap from 'gsap';
 
-const router = useRoute();
+// const route = useRoute();
+// const routePath = ref(route.path);
+
+const repeatedText = ref('ODE TO A '.repeat(50));
 
 onMounted(() => {
   setRatioAndPath();
   setScrollTrigger();
   window.addEventListener('resize', setRatioAndPath);
-  // window.addEventListener('scroll', onScrollOpacity);
+});
+
+onUpdated(() => {
+  setRatioAndPath();
+  setScrollTrigger();
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', setRatioAndPath);
-  // window.removeEventListener('scroll', onScrollOpacity);
 });
 
 function setRatioAndPath() {
@@ -100,40 +76,21 @@ function setRatioAndPath() {
     if (carousel) {
       carousel.style.opacity = '1';
     }
-  }, 25);
+  }, 165);
 }
 
 function setScrollTrigger() {
   let path = document.getElementById('text-path');
-  var body = document.body;
-  var html = document.documentElement;
-  var docHeight = Math.max(
-    body.scrollHeight,
-    body.offsetHeight,
-    html.clientHeight,
-    html.scrollHeight,
-    html.offsetHeight
-  );
   gsap.to(path, {
-    attr: { startOffset: -docHeight / 5 }, // Speed of the text
+    attr: { startOffset: '-100%' },
     ease: 'none',
     scrollTrigger: {
       scrub: 0,
+      start: 'top top',
+      end: 'bottom bottom',
     },
   });
 }
-
-// function onScrollOpacity() {
-//   let text = document.getElementById('theSvg');
-//   let position = document.body.scrollTop || document.documentElement.scrollTop;
-//   if (text && position > window.innerHeight) {
-//     text.classList.add('inactive');
-//     text.classList.remove('active');
-//   } else if (text) {
-//     text.classList.add('active');
-//     text.classList.remove('inactive');
-//   }
-// }
 </script>
 
 <style lang="sass">
@@ -152,18 +109,13 @@ function setScrollTrigger() {
   pointer-events: none
   opacity: 0 // Changed via JavaScript
   transition: opacity .1625s ease
+  @media screen and ( max-width: $breakpoint-mobile)
+    font-weight: 300
   svg
     height: 100%
     width: 100%
     overflow: visible
     fill: currentColor
-    // stroke: rgba(0,0,0,0)
     transition: fill $transition-carousel, stroke $transition-carousel
     border: $test-border
-    // &.active
-    //   fill: currentColor
-    //   stroke: rgba(0,0,0,0)
-    // &.inactive
-    //   fill: rgba(0,0,0,0)
-    //   stroke: currentColor
 </style>
