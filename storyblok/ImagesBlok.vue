@@ -31,7 +31,7 @@ onMounted(() => {
   gsap.utils.toArray('.imageGrid-Item_Image').forEach((image) => {
     gsap.fromTo(
       image,
-      { opacity: 0 },
+      { opacity: 0.5 },
       {
         opacity: 1,
         scrollTrigger: {
@@ -76,7 +76,7 @@ defineProps({ blok: Object });
           width: 100%
           height: auto
           overflow: visible
-          opacity: 0
+          opacity: 0.5
         &.filter
           background-color: var(--filter-color)
     @for $i from 1 through 100
