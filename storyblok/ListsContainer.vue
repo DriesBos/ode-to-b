@@ -30,7 +30,6 @@ defineProps({ blok: Object });
     padding-left: var(--side-spacing)
     padding-right: var(--side-spacing)
     h3.DINRg, h4.DINRg, h5.DINRg
-      font-family: "DINRg", Helvetica, Arial, sans-serif
       text-transform: uppercase
       display: block
   svg

@@ -54,7 +54,6 @@ defineProps({ blok: Object });
     text-align: center
     width: 100%
   .DINRg
-    font-family: "DINRg", Helvetica, Arial, sans-serif
     text-transform: uppercase
     display: block
     font-size: 4vw
