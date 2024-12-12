@@ -38,10 +38,9 @@
 import { onMounted, onUnmounted, onUpdated, ref } from 'vue';
 import gsap from 'gsap';
 
-// const route = useRoute();
-// const routePath = ref(route.path);
+const route = useRoute();
 
-const repeatedText = ref('ODE TO A '.repeat(50));
+const repeatedText = ref('ODE TO A '.repeat(100));
 
 onMounted(() => {
   setRatioAndPath();
@@ -87,7 +86,8 @@ function setScrollTrigger() {
     scrollTrigger: {
       scrub: 0,
       start: 'top top',
-      end: 'bottom bottom',
+      end: '25000px',
+      onUpdate: (self) => console.log('progress:', self.progress),
     },
   });
 }
