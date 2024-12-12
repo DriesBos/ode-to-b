@@ -86,8 +86,8 @@ function setScrollTrigger() {
     scrollTrigger: {
       scrub: 0,
       start: 'top top',
-      end: '25000px',
-      onUpdate: (self) => console.log('progress:', self.progress),
+      end: '25000px', // 25000px is a hack to make it infinite
+      // onUpdate: (self) => console.log('progress:', self.progress),
     },
   });
 }
