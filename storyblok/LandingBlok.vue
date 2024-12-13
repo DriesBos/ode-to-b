@@ -66,7 +66,6 @@ export default {
   width: 100vw
   height: 100vh
   z-index: -5
-  background-color: var(--filter-color)
   // transition: background $transition-scroll-filter
   // will-change: background
   pointer-events: none
@@ -77,8 +76,9 @@ export default {
     height: 100%
     object-fit: cover
     opacity: 1
-    will-change: background
+    will-change: opacity
     transition: opacity $transition-scroll-filter
+    background-color: var(--filter-color)
   &-Text
     position: absolute
     display: flex
