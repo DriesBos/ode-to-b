@@ -50,6 +50,7 @@ watch(
 
 function setColor() {
   const timestamp = Date.now();
+  console.log('setColor', route);
   switch (route.path) {
     case '/':
       pageColor.value = 'red';
@@ -73,6 +74,20 @@ function setColor() {
     default:
       pageColor.value = 'black';
       pageFavicon.value = `/icon-black.svg?${timestamp}`;
+  }
+  switch (route.params.slug[0]) {
+    case 'brands':
+      pageColor.value = 'blue';
+      pageFavicon.value = `/icon-blue.svg?${timestamp}`;
+      break;
+    case 'art':
+      pageColor.value = 'red';
+      pageFavicon.value = `/icon-red.svg?${timestamp}`;
+      break;
+    case 'people':
+      pageColor.value = 'black';
+      pageFavicon.value = `/icon-black.svg?${timestamp}`;
+      break;
   }
 }
 
