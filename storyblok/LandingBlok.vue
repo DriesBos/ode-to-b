@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok" class="landingItem">
+  <section v-editable="blok" class="landingItem" :class="{ filter: filtered }">
     <div v-if="isProject" class="img">
       <NuxtImg
         :src="`https:${blok.image}`"
@@ -35,23 +35,27 @@ export default {
     },
   },
   mounted() {
-    // this.applyFilter();
-    // window.addEventListener('scroll', this.applyFilter);
+    this.applyFilter();
+    window.addEventListener('scroll', this.applyFilter);
   },
   destroyed() {
-    // window.removeEventListener('scroll', this.applyFilter);
+    window.removeEventListener('scroll', this.applyFilter);
   },
   methods: {
     applyFilter() {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
+      console.log(currentScrollPosition);
+      console.log(window.innerHeight * 0.2);
       if (
-        currentScrollPosition > window.innerHeight * 0.8 ||
+        currentScrollPosition < window.innerHeight * 0.2 ||
         currentScrollPosition === 0
       ) {
         this.filtered = true;
+        console.log('applyFilter true');
       } else {
         this.filtered = false;
+        console.log('applyFilter false');
       }
     },
   },
@@ -68,6 +72,7 @@ export default {
   transition: background $transition-scroll-filter
   will-change: background
   pointer-events: none
+  color: white
   img
     position: absolute
     width: 100%
@@ -88,6 +93,8 @@ export default {
     text-align: center
     h1
       font-weight: 400
+    p
+      font-weight: 400
   &-Caption
     position: absolute
     left: 0
@@ -102,8 +109,9 @@ export default {
     align-items: flex-start
     gap: 1rem
     & > p
-      border: $test-border
+      font-weight: 400
       width: 100%
+      font-size: 1rem
       text-transform: uppercase
 
 .page-Default .landingItem,
@@ -114,11 +122,11 @@ export default {
   top: 0
 .page-Project .landingItem
   position: relative
-  // background-color: rgba(0,0,0,0)
-  // transition: background-color $transition-filter
-  // will-change: background-color
+  background-color: rgba(0,0,0,0)
+  transition: background-color $transition-filter
+  will-change: background-color
   img
     mix-blend-mode: multiply
-  // &.filter
-  //   background-color: var(--filter-color)
+  &.filter
+    background-color: var(--filter-color)
 </style>
