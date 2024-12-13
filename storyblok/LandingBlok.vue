@@ -1,9 +1,10 @@
 <template>
-  <section v-editable="blok" class="landingItem" :class="{ filter: filtered }">
+  <section v-editable="blok" class="landingItem">
     <div v-if="isProject" class="img">
       <NuxtImg
         :src="`https:${blok.image}`"
         :alt="blok.title"
+        :class="{ filter: filtered }"
         provider="storyblok"
         quality="90"
         loading="lazy"
@@ -45,17 +46,14 @@ export default {
     applyFilter() {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      console.log(currentScrollPosition);
-      console.log(window.innerHeight * 0.2);
       if (
-        currentScrollPosition < window.innerHeight * 0.2 ||
-        currentScrollPosition === 0
+        currentScrollPosition < window.innerHeight * 0.05 ||
+        currentScrollPosition === 0 ||
+        currentScrollPosition > window.innerHeight * 0.66
       ) {
         this.filtered = true;
-        console.log('applyFilter true');
       } else {
         this.filtered = false;
-        console.log('applyFilter false');
       }
     },
   },
@@ -68,9 +66,9 @@ export default {
   width: 100vw
   height: 100vh
   z-index: -5
-  background: rgba(0,0,0,0)
-  transition: background $transition-scroll-filter
-  will-change: background
+  background-color: var(--filter-color)
+  // transition: background $transition-scroll-filter
+  // will-change: background
   pointer-events: none
   color: white
   img
@@ -78,6 +76,9 @@ export default {
     width: 100%
     height: 100%
     object-fit: cover
+    opacity: 1
+    will-change: background
+    transition: opacity $transition-scroll-filter
   &-Text
     position: absolute
     display: flex
@@ -113,20 +114,23 @@ export default {
       width: 100%
       font-size: 1rem
       text-transform: uppercase
+  .filter
+    opacity: 0.2
 
-.page-Default .landingItem,
-.page-Default .landingItem,
-.page-Default .landingItem,
-.page-Default .landingItem
-  position: sticky
-  top: 0
-.page-Project .landingItem
-  position: relative
-  background-color: rgba(0,0,0,0)
-  transition: background-color $transition-filter
-  will-change: background-color
-  img
-    mix-blend-mode: multiply
-  &.filter
-    background-color: var(--filter-color)
+// .page-Default .landingItem,
+// .page-Default .landingItem,
+// .page-Default .landingItem,
+// .page-Default .landingItem
+//   position: sticky
+//   top: 0
+// .page-Project .landingItem
+//   position: relative
+//   background-color: rgba(0,0,0,0)
+//   transition: background-color $transition-filter
+//   will-change: background-color
+  // img
+  //   opacity: 1
+  // & .filter
+  //   img
+  //     opacity: 0.2
 </style>
