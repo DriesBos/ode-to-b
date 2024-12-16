@@ -27,13 +27,13 @@
         <a
           href="https://wa.me/31630108213?text=Hi%20Ode%20to%20A!"
           target="_blank"
-          >whatsApp</a
+          >WhatsApp</a
         >
       </li>
       <br />
       <li class="hovered">Amsterdam</li>
       <li class="hovered">Accra (Ghana)</li>
-      <li class="hovered">The World</li>
+      <li class="hovered">The world</li>
     </ul>
     <ul
       v-if="
@@ -49,7 +49,7 @@
           target="_blank"
           title="instagram"
           rel="noreferrer"
-          >instagram</a
+          >Instagram</a
         >
       </li>
       <li v-if="general[0].content.linkedin" class="hovered links">
@@ -58,7 +58,7 @@
           target="_blank"
           title="instagram"
           rel="noreferrer"
-          >linkedin</a
+          >LinkedIn</a
         >
       </li>
     </ul>
