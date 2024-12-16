@@ -1,5 +1,10 @@
 <template>
-  <section :id="blok._uid" v-editable="blok" class="imageGrid">
+  <section
+    :id="blok._uid"
+    v-editable="blok"
+    class="imageGrid"
+    :class="[blok.position]"
+  >
     <ul>
       <li
         v-for="image in blok.image"

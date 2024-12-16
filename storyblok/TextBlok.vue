@@ -3,7 +3,7 @@
   <section
     v-editable="blok"
     class="textBlok intersectionObserver"
-    :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }"
+    :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }, [blok.position]"
   >
   <div class="graphic" :class="blok.graphic_alignment">
       <NuxtImg
