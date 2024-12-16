@@ -1,6 +1,6 @@
 <template>
   <section v-editable="blok" class="landingItem">
-    <div v-if="isProject" class="img">
+    <div v-if="isProject" class="img landingItem-Image">
       <NuxtImg
         :src="`https:${blok.image}`"
         :alt="blok.title"
@@ -70,15 +70,22 @@ export default {
   // will-change: background
   pointer-events: none
   color: white
-  img
+  &-Image
+    background-color: var(--filter-color)
     position: absolute
+    left: 0
+    top: 0
     width: 100%
     height: 100%
     object-fit: cover
-    opacity: 1
-    will-change: opacity
-    transition: opacity $transition-scroll-filter
-    background-color: var(--filter-color)
+    img
+      position: absolute
+      width: 100%
+      height: 100%
+      object-fit: cover
+      opacity: 1
+      will-change: opacity
+      transition: opacity $transition-scroll-filter
   &-Text
     position: absolute
     display: flex
