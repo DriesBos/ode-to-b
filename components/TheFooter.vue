@@ -31,7 +31,9 @@
         >
       </li>
       <br />
-      <li class="hovered">Amsterdam, Accra (Ghana), the world</li>
+      <li class="hovered">Amsterdam</li>
+      <li class="hovered">Accra (Ghana)</li>
+      <li class="hovered">The World</li>
     </ul>
     <ul
       v-if="
@@ -47,7 +49,7 @@
           target="_blank"
           title="instagram"
           rel="noreferrer"
-          >Instagram</a
+          >instagram</a
         >
       </li>
       <li v-if="general[0].content.linkedin" class="hovered links">
@@ -56,7 +58,7 @@
           target="_blank"
           title="instagram"
           rel="noreferrer"
-          >LinkedIn</a
+          >linkedin</a
         >
       </li>
     </ul>
