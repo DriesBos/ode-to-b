@@ -5,6 +5,14 @@
       :key="blok._uid"
       :blok="blok"
     />
+    <template v-if="blok.overlay">
+      <StoryblokComponent
+        v-for="blok in blok.overlay"
+        :key="blok._uid"
+        :blok="blok"
+        class="blok-Overlay"
+      />
+    </template>
   </section>
 </template>
 
@@ -13,11 +21,19 @@ defineProps({ blok: Object });
 </script>
 
 <style lang="sass">
-.blok-Container
-  border: $test-border
-  display: flex
-  flex-wrap: no-wrap
-  & > div, & > section
+.blok
+  &-Container
+    position: relative
     border: $test-border
-    flex-basis: 50%
+    display: flex
+    flex-wrap: no-wrap
+    & > section
+      position: relative
+      border: $test-border
+  &-Overlay, &-Overlay > section
+    position: absolute !important
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
 </style>
