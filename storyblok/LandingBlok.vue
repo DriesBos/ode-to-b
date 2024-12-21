@@ -13,10 +13,6 @@
     <div class="landingItem-Text">
       <h1 v-if="blok.title">{{ blok.title }}</h1>
     </div>
-    <div class="landingItem-Caption">
-      <p v-if="blok.categories">{{ blok.categories }}</p>
-      <p v-if="blok.timeframe">{{ blok.timeframe }}</p>
-    </div>
   </section>
 </template>
 
@@ -103,24 +99,6 @@ export default {
       font-weight: 400
     p
       font-weight: 400
-  &-Caption
-    position: absolute
-    left: 0
-    top: 0
-    right: 0
-    bottom: 0
-    padding: var(--spacing-three)
-    width: 100%
-    display: flex
-    flex-direction: column
-    justify-content: flex-end
-    align-items: flex-start
-    gap: 1rem
-    & > p
-      font-weight: 400
-      width: 100%
-      font-size: 1rem
-      text-transform: uppercase
   .filter
     opacity: 0.2
 
