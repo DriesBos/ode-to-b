@@ -46,7 +46,6 @@
       text-transform: uppercase
       pointer-events: auto
       line-height: 0.8
-      border: $test-border
       a
         font-weight: 300
     li:nth-child(1)
