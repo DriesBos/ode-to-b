@@ -1,10 +1,14 @@
 <template>
   <section v-editable="blok" class="landingItem">
-    <div v-if="isProject" class="img landingItem-Image">
+    <div
+      v-if="isProject"
+      class="img landingItem-Image"
+      :class="{ mixBlend: filtered }"
+    >
       <NuxtImg
         :src="`https:${blok.image}`"
         :alt="blok.title"
-        :class="{ filter: filtered }"
+        :class="{ mixBlend: filtered }"
         provider="storyblok"
         quality="90"
         loading="lazy"
@@ -61,27 +65,28 @@ export default {
   position: relative
   width: 100vw
   height: 100vh
-  z-index: -5
-  // transition: background $transition-scroll-filter
-  // will-change: background
   pointer-events: none
   color: white
   &-Image
-    background-color: var(--filter-color)
     position: absolute
     left: 0
     top: 0
     width: 100%
     height: 100%
     object-fit: cover
+    transition: background-color 1s ease
+    will-change: background-color
+    background-color: white
+    &.mixBlend
+      background-color: var(--filter-color) !important
     img
       position: absolute
       width: 100%
       height: 100%
       object-fit: cover
-      opacity: 1
       will-change: opacity
       transition: opacity $transition-scroll-filter
+      mix-blend-mode: multiply
   &-Text
     position: absolute
     display: flex
@@ -97,25 +102,4 @@ export default {
     text-align: center
     h1
       font-weight: 400
-    p
-      font-weight: 400
-  .filter
-    opacity: 0.2
-
-// .page-Default .landingItem,
-// .page-Default .landingItem,
-// .page-Default .landingItem,
-// .page-Default .landingItem
-//   position: sticky
-//   top: 0
-// .page-Project .landingItem
-//   position: relative
-//   background-color: rgba(0,0,0,0)
-//   transition: background-color $transition-filter
-//   will-change: background-color
-  // img
-  //   opacity: 1
-  // & .filter
-  //   img
-  //     opacity: 0.2
 </style>
