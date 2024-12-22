@@ -41,5 +41,4 @@ defineProps({ blok: Object });
     h3
       text-align: center
       transform: translateY(-0.1rem)
-      font-size: 1.66em !important
 </style>

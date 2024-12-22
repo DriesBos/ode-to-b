@@ -43,10 +43,10 @@
 
 body
   // https://css-tricks.com/snippets/css/fluid-typography/
-  // font-size: 18px
   font-family: "din-2014", sans-serif
   font-weight: 400
-  font-size: calc(18px + (22 - 18) * ((100vw - 800px) / (1400 - 800)))
+  // font-size: calc(22px + (26 - 22) * ((100vw - 800px) / (1400 - 800)))
+  font-size: 1.5vw
 
 h1, h2, h3, h4, h5, p, a, em, strong, .markdown
   word-wrap: normal
@@ -61,19 +61,28 @@ li, h1, h2, h3, h4, h5, p, a, span, input, button
   font-family: "din-2014", sans-serif
   color: currentColor
   font-style: normal
-  font-weight: 200
+  font-weight: 400
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
 h1, h2 // Titles // 80pt
-  font-size: 4rem
+  font-size: 6.4vw
   line-height: 1.27
+  @media screen and ( max-width: 1200px)
+    font-size: 72px
 h3 // Big type // 40pt
-  font-size: 2rem
+  font-size: 3.2vw
   line-height: 1.27
-h4, p // Small type // 20pt
-  font-size: 1rem
+  max-width: 60ch
+  @media screen and ( max-width: 1200px)
+    font-size: 36px
+h4, p, .footer li, .footer a, nav li, nav a // Small type // 20pt
+  font-size: 1.6vw
+  font-weight: 400
   line-height: 1.27
+  max-width: 60ch
+  @media screen and ( max-width: 1200px)
+    font-size: 18px
 // h5, span, button, nav // Info type
 //   font-size: 1.5rem
 //   line-height: 1.27

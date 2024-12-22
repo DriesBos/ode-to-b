@@ -1,8 +1,8 @@
 <template>
   <section v-editable="blok" class="projectList">
-    <h3 v-if="blok.title" class="DINRg">
+    <p v-if="blok.title" class="DINRg">
       {{ blok.title }}
-    </h3>
+    </p>
     <ul class="projectList-Container">
       <StoryblokComponent
         v-for="blok in blok.list"
@@ -56,9 +56,6 @@ defineProps({ blok: Object });
   .DINRg
     text-transform: uppercase
     display: block
-    font-size: 4vw
-    @media screen and ( max-width: $breakpoint-mobile)
-      font-size: 1.33rem
   h3.content, h3.dash, a.content, a.dash
     display: inline
     text-transform: uppercase
@@ -68,7 +65,11 @@ defineProps({ blok: Object });
     will-change: color, text-stroke
     overflow-wrap: break-word
     hyphens: none
-    font-size: 8vw
+    // Same as general quote style
+    font-size: 6.4vw
+    line-height: 1.27
+    @media screen and ( max-width: 1200px)
+      font-size: 72px
   h3.content, a.content
     &:hover
       @media (hover: hover)

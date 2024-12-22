@@ -5,20 +5,22 @@
     class="textBlok intersectionObserver"
     :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }, [blok.position]"
   >
-  <div class="graphic" :class="blok.graphic_alignment">
-      <NuxtImg
-        v-if="blok.graphic"
-        :src="blok.graphic"
-        alt=""
-        provider="storyblok"
-        quality="90"
-        loading="lazy"
-      />
-    </div>
+  <template v-if="blok.graphic">
+    <div class="graphic" :class="blok.graphic_alignment">
+        <NuxtImg
+          v-if="blok.graphic"
+          :src="blok.graphic"
+          alt=""
+          provider="storyblok"
+          quality="90"
+          loading="lazy"
+        />
+      </div>
+  </template>
 
   <Markdown v-if="blok.text" class="textBlok-Item textBlok-Main" :content="blok.text" />
-  <Markdown v-if="blok.fade_in_text"    class="textBlok-Item textBlok-FadeIn"
-      :content="blok.fade_in_text" />
+  <!-- <Markdown v-if="blok.fade_in_text"    class="textBlok-Item textBlok-FadeIn"
+      :content="blok.fade_in_text" /> -->
   </section>
 </template>
 
@@ -30,16 +32,15 @@ const props = defineProps({ blok: Object });
 .textBlok
   display: flex
   flex-direction: column
-  justify-content: center
-  align-items: center
   width: 100%
   padding-top: var(--spacing-three)
   padding-bottom: var(--spacing-three)
   padding-left: var(--side-spacing)
   padding-right: var(--side-spacing)
   overflow: hidden
-  &-Item
-    width: 100%
+  border: 2px solid purple
+  // &-Item
+  //   width: 100%
 
 // @media screen and ( min-width: $breakpoint-mobile)
 //   .view-Single
