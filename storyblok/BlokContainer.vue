@@ -1,5 +1,5 @@
 <template>
-  <section class="blok-Container">
+  <section class="blok-Container" :class="{ fullscreen: blok.fullscreen }">
     <StoryblokComponent
       v-for="blok in blok.body"
       :key="blok._uid"
