@@ -1,13 +1,10 @@
 <!-- prettier ignore -->
+<!-- eslint-disable -->
 <template>
+  <!-- eslint-disable -->
   <!-- prettier ignore -->
-  <section
-    :id="blok._uid"
-    v-editable="blok"
-    class="imageGrid"
-    :class="({ fullscreen: blok.fullscreen }, blok.position)"
-  >
-    <template v-if="blok.image > 0">
+  <template v-if="blok.image > 0">
+    <section :id="blok._uid" v-editable="blok" class="imageGrid">
       <ul>
         <li
           v-for="image in blok.image"
@@ -28,18 +25,25 @@
           </div>
         </li>
       </ul>
-    </template>
-    <template v-else>
+    </section>
+  </template>
+  <template v-else>
+    <section
+      :id="blok._uid"
+      v-editable="blok"
+      class="imageSingle"
+      :class="[[blok.size], [blok.position]]"
+    >
       <NuxtImg
-        class="portrait imageGrid-Item_Image singleImage"
+        class="portrait imageGrid-Item_Image"
         :src="blok.image[0].filename"
         alt=""
         provider="storyblok"
         quality="90"
         loading="lazy"
       />
-    </template>
-  </section>
+    </section>
+  </template>
 </template>
 
 <script setup>
@@ -68,9 +72,9 @@ defineProps({ blok: Object });
 </script>
 
 <style lang="sass">
-
 .imageGrid
   position: relative
+  width: 100%
   z-index: -1
   ul
     display: flex
@@ -130,15 +134,29 @@ defineProps({ blok: Object });
           margin-top: 0
           margin-bottom: var(--spacing-one)
           margin-left: 0
+
+.imageSingle
+  position: relative
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   &.fullscreen
-    ul
-      padding-left: 0
-      padding-right: 0
-    .singleImage
+    img
       position: absolute
       top: 0
       left: 0
       width: 100%
       height: 100%
       object-fit: cover
+  &.size-Large
+    img
+      width: 100%
+  &.size-Medium
+    img
+      width: 66%
+  &.size-Small
+    img
+      width: 33%
 </style>

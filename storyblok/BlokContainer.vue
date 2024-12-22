@@ -29,11 +29,12 @@ defineProps({ blok: Object });
     flex-wrap: no-wrap
     & > section
       border: $test-border
-  &-Overlay, &-Overlay > section
+      max-width: 50%
+  &-Overlay, &-Overlay.section
     position: absolute !important
     top: 0
     left: 0
     width: 100%
-    max-width: 100%
+    max-width: 100% !important
     height: 100%
 </style>
