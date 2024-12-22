@@ -1,30 +1,44 @@
+<!-- prettier ignore -->
 <template>
+  <!-- prettier ignore -->
   <section
     :id="blok._uid"
     v-editable="blok"
     class="imageGrid"
-    :class="[blok.position]"
+    :class="({ fullscreen: blok.fullscreen }, blok.position)"
   >
-    <ul>
-      <li
-        v-for="image in blok.image"
-        :key="image.filename"
-        class="imageGrid-Item"
-      >
-        <div class="imageGrid-Item_Placeholder">
-          <div>
-            <NuxtImg
-              class="portrait footer-Image imageGrid-Item_Image"
-              :src="image.filename"
-              alt=""
-              provider="storyblok"
-              quality="90"
-              loading="lazy"
-            />
+    <template v-if="blok.image > 0">
+      <ul>
+        <li
+          v-for="image in blok.image"
+          :key="image.filename"
+          class="imageGrid-Item"
+        >
+          <div class="imageGrid-Item_Placeholder">
+            <div>
+              <NuxtImg
+                class="portrait imageGrid-Item_Image"
+                :src="image.filename"
+                alt=""
+                provider="storyblok"
+                quality="90"
+                loading="lazy"
+              />
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </template>
+    <template v-else>
+      <NuxtImg
+        class="portrait imageGrid-Item_Image singleImage"
+        :src="blok.image[0].filename"
+        alt=""
+        provider="storyblok"
+        quality="90"
+        loading="lazy"
+      />
+    </template>
   </section>
 </template>
 
@@ -56,6 +70,7 @@ defineProps({ blok: Object });
 <style lang="sass">
 
 .imageGrid
+  position: relative
   z-index: -1
   ul
     display: flex
@@ -115,4 +130,15 @@ defineProps({ blok: Object });
           margin-top: 0
           margin-bottom: var(--spacing-one)
           margin-left: 0
+  &.fullscreen
+    ul
+      padding-left: 0
+      padding-right: 0
+    .singleImage
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      object-fit: cover
 </style>
