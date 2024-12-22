@@ -38,7 +38,6 @@ const props = defineProps({ blok: Object });
   padding-left: var(--side-spacing)
   padding-right: var(--side-spacing)
   overflow: hidden
-  border: 2px solid purple
   // &-Item
   //   width: 100%
 
