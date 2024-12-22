@@ -29,26 +29,22 @@
   text-transform: uppercase
 .visible
   opacity: 1 !important
-.top_left
-  justify-content: flex-start
-  align-items: flex-start
-  border: $test-border
-.top_right
-  justify-content: flex-end
-  align-items: flex-start
-  border: $test-border
-.center
-  justify-content: center
-  align-items: center
-  border: $test-border
-.bottom_left
-  justify-content: flex-start
-  align-items: flex-end
-  border: $test-border
-.bottom_right
-  justify-content: flex-end
-  align-items: flex-end
-  border: $test-border
+.position
+  &-TopLeft
+    justify-content: flex-start !important
+    align-items: flex-start !important
+  &-TopRight
+    justify-content: flex-start !important
+    align-items: flex-end !important
+  &-Center
+    justify-content: center !important
+    align-items: center !important
+  &-BottomLeft
+    justify-content: flex-end !important
+    align-items: flex-start !important
+  &-BottomRight
+    justify-content: flex-end !important
+    align-items: flex-end !important
 
 // CURSOR
 // .cursor
