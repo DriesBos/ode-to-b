@@ -1,8 +1,4 @@
-<!-- prettier ignore -->
-<!-- eslint-disable -->
 <template>
-  <!-- eslint-disable -->
-  <!-- prettier ignore -->
   <template v-if="blok.image > 0">
     <section :id="blok._uid" v-editable="blok" class="imageGrid">
       <ul>
