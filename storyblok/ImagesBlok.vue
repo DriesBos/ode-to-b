@@ -51,7 +51,7 @@ import { gsap } from 'gsap';
 
 onMounted(() => {
   gsap.utils.toArray('.imageSingle-ImageContainer').forEach((image) => {
-    gsap.to(
+    gsap.fromTo(
       image,
       { backgroundColor: 'blue' },
       {
