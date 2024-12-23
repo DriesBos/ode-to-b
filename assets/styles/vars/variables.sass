@@ -37,6 +37,21 @@ body
     --section-min-height: calc(100vh - (2 * #{var(--site-border-spacing)}))
   // NEW SYST
   --site-border-spacing: 2.75vw
+  // Paragraph width
+  h1, h2
+    --paragraph-width: 100%
+  h3
+    --paragraph-width: 75%
+  h4, p, .footer li, .footer a, nav li, nav a
+    --paragraph-width: 50%
+  .blok-Container
+    h1, h2
+      --paragraph-width: 100%
+    h3
+      --paragraph-width: 85%
+    h4, p, .footer li, .footer a, nav li, nav a
+      --paragraph-width: 66%
+
   @media screen and ( max-width: $breakpoint-mobile)
     --spacing-one: 1em
     --spacing-two: 1em
