@@ -43,7 +43,7 @@ function handleClick() {
   z-index: 999
   li
     pointer-events: auto
-    padding: calc(2 * #{var(--nav-spacing)})
+    padding: calc(2 * #{var(--site-border-spacing)})
     border: $test-border
     cursor: pointer
     svg

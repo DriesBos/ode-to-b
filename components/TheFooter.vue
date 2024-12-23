@@ -171,7 +171,7 @@ general.value = data.stories;
   background: white
   color: var(--current-color)
   border-top: 1px solid var(--current-color)
-  padding: calc(3 * #{var(--nav-spacing)})
+  padding: calc(3 * #{var(--site-border-spacing)})
   overflow: hidden
   ul
     display: flex

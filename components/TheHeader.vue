@@ -31,7 +31,7 @@
   nav
     width: 100%
     height: 100%
-    padding: calc(2 * #{var(--nav-spacing)})
+    padding: calc(2 * #{var(--site-border-spacing)})
     border: $test-border
   .header-Desktop
     position: relative

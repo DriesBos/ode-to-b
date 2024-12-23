@@ -101,7 +101,7 @@ function setScrollTrigger() {
   right: 0
   top: 0
   bottom: 0
-  padding: var(--nav-spacing)
+  padding: var(--site-border-spacing)
   overflow: hidden
   font-weight: 200
   font-size: 4.3vw
