@@ -1,8 +1,8 @@
 <template>
-  <header class="the-Prev">
+  <header class="the-Prev" @click="handleClick">
     <nav>
       <ul>
-        <li @click="handleClick">
+        <li>
           <svg
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,14 +38,17 @@ function handleClick() {
 <style lang="sass">
 .the-Prev
   position: fixed
-  top: 0
+  top: var(--site-border-spacing)
   left: 0
   z-index: 999
+  display: flex
+  justify-content: center
+  align-items: center
+  width: var(--site-border-spacing)
+  height: var(--site-border-spacing)
+  cursor: pointer
   li
     pointer-events: auto
-    padding: calc(2 * #{var(--site-border-spacing)})
-    border: $test-border
-    cursor: pointer
     svg
       height: 1.5rem
       fill: var(--current-color)
