@@ -45,6 +45,7 @@ defineProps({ blok: Object });
   position: relative
   width: 100vw
   height: 100vh
+  height: var(--section-min-height)
   pointer-events: none
   color: white
   &-Image

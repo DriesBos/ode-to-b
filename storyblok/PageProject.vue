@@ -11,3 +11,9 @@
 <script setup>
 defineProps({ blok: Object });
 </script>
+
+<style lang="sass" scoped>
+.page
+  &-Project
+    padding: var(--site-border-spacing)
+</style>

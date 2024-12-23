@@ -4,7 +4,7 @@
 // 997 The Footer
 
 // Testing
-$test-border: 0px solid currentColor
+$test-border: 1px solid currentColor
   
 // Colors
 $color-blue: #1500FF
@@ -30,6 +30,11 @@ body
   --spacing-three: 8vmin
   --side-spacing: 9vw
   --topside-spacing: calc(1.33rem + 5.5vw)
+  --section-min-height: 100vh
+  .page-Default
+    --section-min-height: calc(100vh - (4 * #{var(--site-border-spacing)}))
+  .page-Project
+    --section-min-height: calc(100vh - (2 * #{var(--site-border-spacing)}))
   // NEW SYST
   --site-border-spacing: 2.75vw
   @media screen and ( max-width: $breakpoint-mobile)

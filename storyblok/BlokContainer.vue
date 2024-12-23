@@ -24,11 +24,10 @@ defineProps({ blok: Object });
 .blok
   &-Container
     position: relative
-    border: $test-border
     display: flex
     flex-wrap: no-wrap
+    border: 0
     & > section
-      border: $test-border
       max-width: 50%
   &-Overlay, &-Overlay.section
     position: absolute !important
