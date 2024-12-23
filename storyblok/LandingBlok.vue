@@ -29,7 +29,7 @@ onMounted(() => {
         scrollTrigger: {
           trigger: image,
           start: 'top top',
-          end: 'bottom 95%',
+          end: 'bottom 99%',
           scrub: true,
         },
       }
