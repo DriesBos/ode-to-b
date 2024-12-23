@@ -44,10 +44,10 @@ defineProps({ blok: Object });
 .landingItem
   position: relative
   width: 100vw
-  height: 100vh
   height: var(--section-min-height)
   pointer-events: none
   color: white
+  margin-bottom: var(--site-border-spacing)
   &-Image
     position: absolute
     left: 0

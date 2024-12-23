@@ -33,11 +33,9 @@ const props = defineProps({ blok: Object });
   display: flex
   flex-direction: column
   width: 100%
-  padding-top: var(--spacing-three)
-  padding-bottom: var(--spacing-three)
-  padding-left: var(--side-spacing)
-  padding-right: var(--side-spacing)
   overflow: hidden
+  padding-top: var(--site-border-spacing)
+  padding-bottom: var(--site-border-spacing)
   // &-Item
   //   width: 100%
 
