@@ -1,14 +1,9 @@
 <template>
   <section v-editable="blok" class="landingItem">
-    <div
-      v-if="isProject"
-      class="img landingItem-Image"
-      :class="{ mixBlend: filtered }"
-    >
+    <div class="img landingItem-Image">
       <NuxtImg
         :src="`https:${blok.image}`"
         :alt="blok.title"
-        :class="{ mixBlend: filtered }"
         provider="storyblok"
         quality="90"
         loading="lazy"
@@ -20,44 +15,29 @@
   </section>
 </template>
 
-<script>
-export default {
-  props: {
-    blok: Object,
-  },
-  data() {
-    return {
-      filtered: true,
-    };
-  },
-  computed: {
-    isProject() {
-      return this.$route.params.slug.length === 2;
-    },
-  },
-  mounted() {
-    this.applyFilter();
-    window.addEventListener('scroll', this.applyFilter);
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.applyFilter);
-  },
-  methods: {
-    applyFilter() {
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop;
-      if (
-        currentScrollPosition < window.innerHeight * 0.05 ||
-        currentScrollPosition === 0 ||
-        currentScrollPosition > window.innerHeight * 0.66
-      ) {
-        this.filtered = true;
-      } else {
-        this.filtered = false;
+<script setup>
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+
+onMounted(() => {
+  gsap.utils.toArray('.landingItem-Image').forEach((image) => {
+    gsap.fromTo(
+      image,
+      { backgroundColor: 'blue' },
+      {
+        backgroundColor: 'white',
+        scrollTrigger: {
+          trigger: image,
+          start: 'top top',
+          end: 'bottom 95%',
+          scrub: true,
+        },
       }
-    },
-  },
-};
+    );
+  });
+});
+
+defineProps({ blok: Object });
 </script>
 
 <style lang="sass">
@@ -74,18 +54,14 @@ export default {
     width: 100%
     height: 100%
     object-fit: cover
-    transition: background-color 1s ease
+    transition: background-color .33s ease
     will-change: background-color
-    background-color: white
-    &.mixBlend
-      background-color: var(--filter-color) !important
+    background-color: var(--filter-color)
     img
       position: absolute
       width: 100%
       height: 100%
       object-fit: cover
-      will-change: opacity
-      transition: opacity $transition-scroll-filter
       mix-blend-mode: multiply
   &-Text
     position: absolute

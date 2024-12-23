@@ -80,7 +80,7 @@ defineProps({ blok: Object });
   align-items: center
   &-ImageContainer
     background-color: var(--filter-color)
-    transition: background-color 1s ease
+    transition: background-color .33s ease
     will-change: background-color
     width: auto
   &-ImageItem
