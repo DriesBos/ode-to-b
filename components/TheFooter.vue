@@ -62,11 +62,6 @@
         >
       </li>
     </ul>
-    <!-- <ul>
-      <li>&nbsp;</li>
-      <li class="hovered links" @click="toggleFooterModalTerms"></li>
-      <li class="hovered links" @click="toggleFooterModalMadeby"></li>
-    </ul> -->
   </section>
 </template>
 
@@ -114,8 +109,6 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
   window.removeEventListener('resize', updateDimensions);
 });
-
-// watch(scrollPosition, (newValue, oldValue) => {});
 
 general.value = data.stories;
 
@@ -184,9 +177,7 @@ general.value = data.stories;
     li
       &:first-child
         text-transform: uppercase
-        font-weight: 300
-      &.links, a
-        font-weight: 500
+        font-weight: 200
     &:nth-child(1)
       @media screen and ( max-width: $breakpoint-mobile)
         order: 1
