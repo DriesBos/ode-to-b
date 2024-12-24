@@ -1,6 +1,6 @@
 <template>
   <!-- prettier-ignore -->
-  <div id="carousel" class="svg-container" r>
+  <div id="carousel" class="svg-container">
     <svg
       id="theSvg"
       xmlns="http://www.w3.org/2000/svg"
@@ -41,11 +41,13 @@ import gsap from 'gsap';
 const route = useRoute();
 
 const repeatedText = ref('ODE TO A '.repeat(100));
+let scrollTimeout;
 
 onMounted(() => {
   setRatioAndPath();
   setScrollTrigger();
   window.addEventListener('resize', setRatioAndPath);
+  window.addEventListener('scroll', handleScroll);
 });
 
 onUpdated(() => {
@@ -55,7 +57,21 @@ onUpdated(() => {
 
 onUnmounted(() => {
   window.removeEventListener('resize', setRatioAndPath);
+  window.removeEventListener('scroll', handleScroll);
 });
+
+const handleScroll = () => {
+  const textPath = document.getElementById('text-path');
+  if (textPath) {
+    textPath.style.fontStyle = 'italic';
+  }
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    if (textPath) {
+      textPath.style.fontStyle = 'normal';
+    }
+  }, 25);
+};
 
 function setRatioAndPath() {
   let width = window.innerWidth;
