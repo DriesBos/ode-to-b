@@ -29,7 +29,7 @@
       :id="blok._uid"
       v-editable="blok"
       class="imageSingle"
-      :class="[[blok.size], [blok.position]]"
+      :class="[[blok.size], [blok.position], { removeFilter: blok.unfilter }]"
     >
       <div class="imageSingle-ImageContainer">
         <NuxtImg
@@ -105,6 +105,9 @@ defineProps({ blok: Object });
   &.size-Small
     .imageSingle-ImageContainer
       width: 33%
+  &.removeFilter
+    .imageSingle-ImageContainer
+      background-color: transparent !important
 
 // .imageGrid
 //   position: relative
