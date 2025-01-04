@@ -1,5 +1,9 @@
 <template>
-  <section class="blok-Container" :class="{ fullscreen: blok.fullscreen }">
+  <section
+    class="blok-Container"
+    :class="{ fullscreen: blok.fullscreen }"
+    :data-columns="blok.body.length"
+  >
     <StoryblokComponent
       v-for="blok in blok.body"
       :key="blok._uid"
@@ -28,7 +32,8 @@ defineProps({ blok: Object });
     flex-wrap: no-wrap
     border: 0
     & > section
-      max-width: 50%
+      flex-grow: 1
+    // Random witdth values calculated in main body.css
   &-Overlay, &-Overlay.section
     position: absolute !important
     top: 0
