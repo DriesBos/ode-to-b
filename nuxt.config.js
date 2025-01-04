@@ -10,6 +10,8 @@ export default defineNuxtConfig({
   },
 
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
       viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
       htmlAttrs: {
