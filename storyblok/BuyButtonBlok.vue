@@ -25,8 +25,4 @@ const code = ref(props.blok.code);
   justify-content: center
   align-items: center
   width: 100%
-  padding-top: var(--spacing-one)
-  padding-bottom: var(--spacing-one)
-  padding-left: var(--side-spacing)
-  padding-right: var(--side-spacing)
 </style>
