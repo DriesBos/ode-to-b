@@ -23,7 +23,7 @@ onMounted(() => {
   gsap.utils.toArray('.landingItem-Image').forEach((image) => {
     gsap.fromTo(
       image,
-      { backgroundColor: 'blue' },
+      { backgroundColor: 'currentColor' },
       {
         backgroundColor: 'white',
         scrollTrigger: {
@@ -55,9 +55,10 @@ defineProps({ blok: Object });
     width: 100%
     height: 100%
     object-fit: cover
+    color: var(--filter-color)
+    background-color: currentColor
     transition: background-color .33s ease
     will-change: background-color
-    background-color: var(--filter-color)
     img
       position: absolute
       width: 100%

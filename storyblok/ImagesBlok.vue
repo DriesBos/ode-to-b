@@ -56,7 +56,7 @@ onMounted(() => {
   gsap.utils.toArray('.imageGrid-ImageContainer').forEach((image) => {
     gsap.fromTo(
       image,
-      { backgroundColor: 'blue' },
+      { backgroundColor: 'currentColor' },
       {
         backgroundColor: 'white',
         scrollTrigger: {
@@ -100,7 +100,7 @@ defineProps({ blok: Object });
     background-color: var(--filter-color)
     will-change: background-color
     width: auto
-    transition: background-color 1s ease
+    transition: background-color .33s ease
   &-ImageItem
     mix-blend-mode: multiply
   &.fullscreen
@@ -144,7 +144,7 @@ defineProps({ blok: Object });
       @media screen and ( max-width: $breakpoint-mobile)
         flex-basis: 100%
       .imageGrid-ImageContainer
-        transition: background-color 1s ease
+        transition: background-color .33s ease
         background-color: var(--filter-color)
         will-change: background-color
         width: auto
