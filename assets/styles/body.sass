@@ -48,6 +48,40 @@
 
 // RANDOMNESS
 .page
+  // Image blok random vertical offset
+  .blok-Container:nth-child(odd)
+    .imageSingle
+      transform: translateY(random(10) - 5%)
+    .imageSingle:nth-child(even)
+      transform: translateY(random(10) - 5%)
+  .blok-Container:nth-child(even)
+    .imageSingle:nth-child(odd)
+      transform: translateY(random(10) - 5%)
+    .imageSingle:nth-child(even)
+      transform: translateY(random(10) - 5%)
+  // Image blok random widths
+  .imageSingle
+    &.size-Large
+      .imageSingle-ImageContainer
+        width: random(10) + 90%
+    &.size-Medium
+      .imageSingle-ImageContainer
+        width: random(6) + 60%
+    &.size-Small
+      .imageSingle-ImageContainer
+        width: random(3) + 30%
+  .blok-Container:nth-child(even)
+    .imageSingle
+      &.size-Large
+        .imageSingle-ImageContainer
+          width: random(10) + 90%
+      &.size-Medium
+        .imageSingle-ImageContainer
+          width: random(6) + 60%
+      &.size-Small
+        .imageSingle-ImageContainer
+          width: random(3) + 30%
+  //Blok container section widths
   .blok-Container    
     &[data-columns="2"]
       & > section:nth-child(1)
