@@ -36,6 +36,9 @@ const props = defineProps({ blok: Object });
   overflow: hidden
   padding-top: var(--site-border-spacing)
   padding-bottom: var(--site-border-spacing)
+  pointer-events: none
+  .markdown
+    pointer-events: auto
   // &-Item
   //   width: 100%
 

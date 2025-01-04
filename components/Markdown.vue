@@ -14,4 +14,6 @@ const markdown = new MarkdownIt();
 .markdown
   p
     white-space: pre-line
+  a
+    text-dectoration: underline !important
 </style>
