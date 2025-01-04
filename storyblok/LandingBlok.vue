@@ -1,5 +1,9 @@
 <template>
-  <section v-editable="blok" class="landingItem">
+  <section
+    v-editable="blok"
+    class="landingItem"
+    :class="{ removeFilter: blok.unfilter }"
+  >
     <div class="img landingItem-Image">
       <NuxtImg
         :src="`https:${blok.image}`"
@@ -80,4 +84,7 @@ defineProps({ blok: Object });
     text-align: center
     h1
       font-weight: 400
+  &.removeFilter
+    .landingItem-Image
+      background-color: transparent !important
 </style>
