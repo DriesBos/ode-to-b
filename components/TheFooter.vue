@@ -1,5 +1,17 @@
 <template>
   <section id="theFooter" class="footer" :class="{ visible: isVisible }">
+    <div class="scrollUp" @click="handleClick">
+      <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 26">
+        <g clip-path="url(#a)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M24 13.986H2.822l9.602 9.591-1.413 1.412L.409 14.4l-.001.001L-1 12.996l.002-.002H-1l1.413-1.412h.002L11.011 1l1.407 1.406-9.596 9.584H24v1.996Z"
+            fill="currentColor"
+          />
+        </g>
+      </svg>
+    </div>
     <ul>
       <li>Site</li>
       <li class="hovered links">
@@ -81,6 +93,14 @@ const { data } = await storyblokApi.get('cdn/stories/', {
   starts_with: 'general',
   is_startpage: false,
 });
+
+function handleClick() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
+}
 
 const updateDimensions = () => {
   clientHeight.value = window.innerHeight;
@@ -187,6 +207,25 @@ general.value = data.stories;
     &:nth-child(3)
       @media screen and ( max-width: $breakpoint-mobile)
         order: 2
+
+.scrollUp
+  position: absolute
+  width: var(--site-border-spacing)
+  height: var(--site-border-spacing)
+  left: 0
+  bottom: calc(3 * #{var(--site-border-spacing)})
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  svg
+    height: 1.5rem
+    fill: var(--current-color)
+    transition: all 0.33s ease
+    transform: translateY(0%) rotate(90deg)
+  &:hover
+    svg
+      transform: translateY(-.5rem) rotate(90deg)
 
 .links
   --var: 0%
