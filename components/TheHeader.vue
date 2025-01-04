@@ -48,6 +48,28 @@
       line-height: 0.8
       a
         font-weight: 300
+        --var: 0%
+        min-width: 0 // Ellipsis hack
+        position: relative
+        white-space: nowrap
+        &::before
+          content: ''
+          position: absolute
+          display: inline-block
+          left: 0
+          bottom: 0
+          width: var(--var)
+          height: 2px
+          background: currentColor
+          will-change: width, border-bottom
+        &:hover
+          &::before
+            @media ( hover: hover )
+              animation: hyperLink .33s ease
+              animation-iteration-count: 1
+              animation-direction: normal
+              animation-fill-mode: forwards
+
     li:nth-child(1)
       top: 0
       left: 0
@@ -64,6 +86,13 @@
     li:nth-child(4)
       bottom: 0
       right: 0
+
+@keyframes hyperLink
+  0%
+    width: 0%
+  100%
+    width: 100%
+
   // .header-Single
   //   li
   //     position: absolute

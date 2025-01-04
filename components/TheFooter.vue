@@ -31,9 +31,9 @@
         >
       </li>
       <br />
-      <li class="hovered">Amsterdam</li>
-      <li class="hovered">Accra (Ghana)</li>
-      <li class="hovered">The world</li>
+      <li>Amsterdam</li>
+      <li>Accra (Ghana)</li>
+      <li>The world</li>
     </ul>
     <ul
       v-if="
@@ -187,4 +187,33 @@ general.value = data.stories;
     &:nth-child(3)
       @media screen and ( max-width: $breakpoint-mobile)
         order: 2
+
+.links
+  --var: 0%
+  min-width: 0 // Ellipsis hack
+  position: relative
+  white-space: nowrap
+  &::before
+    content: ''
+    position: absolute
+    display: inline-block
+    left: 0
+    bottom: 0
+    width: var(--var)
+    height: 2px
+    background: currentColor
+    will-change: width, border-bottom
+  &:hover
+    &::before
+      @media ( hover: hover )
+        animation: hyperLink .33s ease
+        animation-iteration-count: 1
+        animation-direction: normal
+        animation-fill-mode: forwards
+
+@keyframes hyperLink
+  0%
+    width: 0%
+  100%
+    width: 100%
 </style>
