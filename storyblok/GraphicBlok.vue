@@ -1,6 +1,6 @@
 <template>
-  <section v-editable="blok" class="landinggraphicitem">
-    <div class="landinggraphicitem-Container" :class="blok.graphic_alignment">
+  <section v-editable="blok" class="landinggraphicItem">
+    <div class="landinggraphicItem-Container" :class="blok.graphic_alignment">
       <NuxtImg
         v-if="blok.graphic"
         :src="`https:${blok.graphic}`"
@@ -18,34 +18,27 @@ defineProps({ blok: Object });
 </script>
 
 <style lang="sass">
-.landinggraphicitem
-  position: absolute
-  display: flex
-  justify-content: flex-end
-  top: 0
-  left: 0
+.landinggraphicItem
+  position: relative
   width: 100%
-  height: 100vh
-  padding-left: var(--side-spacing)
-  padding-right: var(--side-spacing)
-  padding-top: var(--topside-spacing)
-  padding-bottom: var(--topside-spacing)
   z-index: +1
+  color: var(--current-color)
+  height: var(--section-min-height)
   &-Container
     display: flex
     align-items: center
     height: 100%
     width: 100%
     img
-      height: 82vmin
-      width: 82vmin
+      height: 100%
       max-width: 100%
       max-height: 100%
+    svg
+      fill: currentColor !important
     &.left
       justify-content: flex-start
     &.center
-      img
-        width: 100%
+      justify-content: center
     &.right
       justify-content: flex-end
 </style>
