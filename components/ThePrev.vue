@@ -52,4 +52,9 @@ function handleClick() {
     svg
       height: 1.5rem
       fill: var(--current-color)
+      transition: all 0.33s ease
+      transform: translateX(0rem)
+  &:hover
+    svg
+      transform: translateX(-.5rem)
 </style>
