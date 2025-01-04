@@ -1,23 +1,26 @@
 <template>
   <template v-if="blok.image.length > 1">
-    <section :id="blok._uid" v-editable="blok" class="imageGrid">
+    <section
+      :id="blok._uid"
+      v-editable="blok"
+      class="imageGrid"
+      :class="{ removeFilter: blok.unfilter }"
+    >
       <ul>
         <li
           v-for="image in blok.image"
           :key="image.filename"
           class="imageGrid-Item"
         >
-          <div class="imageGrid-Item_Placeholder">
-            <div>
-              <NuxtImg
-                class="portrait imageGrid-Item_Image"
-                :src="image.filename"
-                alt=""
-                provider="storyblok"
-                quality="90"
-                loading="lazy"
-              />
-            </div>
+          <div class="imageGrid-ImageContainer">
+            <NuxtImg
+              class="portrait imageGrid-ImageItem"
+              :src="image.filename"
+              alt=""
+              provider="storyblok"
+              quality="90"
+              loading="lazy"
+            />
           </div>
         </li>
       </ul>
@@ -50,7 +53,7 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 onMounted(() => {
-  gsap.utils.toArray('.imageSingle-ImageContainer').forEach((image) => {
+  gsap.utils.toArray('.imageGrid-ImageContainer').forEach((image) => {
     gsap.fromTo(
       image,
       { backgroundColor: 'blue' },
@@ -59,7 +62,22 @@ onMounted(() => {
         scrollTrigger: {
           trigger: image,
           start: 'top center',
-          end: 'top center',
+          end: 'center center',
+          scrub: true,
+        },
+      }
+    );
+  });
+  gsap.utils.toArray('.imageSingle-ImageContainer').forEach((image) => {
+    gsap.fromTo(
+      image,
+      { backgroundColor: 'currentColor' },
+      {
+        backgroundColor: 'white',
+        scrollTrigger: {
+          trigger: image,
+          start: 'top center',
+          end: 'center center',
           scrub: true,
         },
       }
@@ -80,9 +98,9 @@ defineProps({ blok: Object });
   align-items: center
   &-ImageContainer
     background-color: var(--filter-color)
-    transition: background-color .33s ease
     will-change: background-color
     width: auto
+    transition: background-color 1s ease
   &-ImageItem
     mix-blend-mode: multiply
   &.fullscreen
@@ -112,6 +130,8 @@ defineProps({ blok: Object });
 .imageGrid
   position: relative
   width: 100%
+  &-ImageItem
+    mix-blend-mode: multiply
   ul
     display: flex
     flex-wrap: wrap
@@ -123,26 +143,17 @@ defineProps({ blok: Object });
       flex-basis: 50%
       @media screen and ( max-width: $breakpoint-mobile)
         flex-basis: 100%
-        transform: translate(0, 0) !important
-      .imageGrid-Item_Placeholder
-        position: relative
-        overflow: visible
+      .imageGrid-ImageContainer
+        transition: background-color 1s ease
         background-color: var(--filter-color)
-        transition: background-color $transition-filter
-        will-change: background-color, transform
-        // max-height: 100vmin
+        will-change: background-color
+        width: auto
         img
-          width: auto
-          max-height: 100vmin
-          object-fit: contain
+          width: 100%
           height: auto
-          overflow: visible
-          opacity: 0.5
-        &.filter
-          background-color: var(--filter-color)
     @for $i from 1 through 100
       li:nth-child(#{$i})
-        .imageGrid-Item_Placeholder
+        .imageGrid-ImageContainer
           --y: 0
           width: random(40) + 50%
           margin-top: random(200) - 100 + px
@@ -155,16 +166,16 @@ defineProps({ blok: Object });
             margin-bottom: var(--spacing-one)
             margin-left: 0
     li:first-child, li:nth-child(2)
-      .imageGrid-Item_Placeholder
+      .imageGrid-ImageContainer
         @media screen and ( min-width: $breakpoint-mobile)
           margin-top: var(--spacing-three)
     li:last-child, li:nth-last-child(2)
-      .imageGrid-Item_Placeholder
+      .imageGrid-ImageContainer
         @media screen and ( min-width: $breakpoint-mobile)
           margin-bottom: 0
     li:only-child, li:last-child:nth-child(odd)
       flex-basis: 100%
-      .imageGrid-Item_Placeholder
+      .imageGrid-ImageContainer
         width: random(20) + 60%
         @media screen and ( max-width: $breakpoint-mobile)
           width: 100%
