@@ -31,11 +31,10 @@ defineProps({ blok: Object });
   align-items: center
   justify-content: center
   width: 100%
-  min-height: 100vh
-  padding-top: var(--spacing-three)
-  padding-bottom: var(--spacing-three)
-  padding-left: var(--side-spacing)
-  padding-right: var(--side-spacing)
+  @media screen and ( min-width: $breakpoint-mobile)
+    padding-top: var(--site-border-spacing)
+    padding-bottom: var(--site-border-spacing)
+    min-height: 100svh
   .projectList-Container
     width: 100%
     display: flex
