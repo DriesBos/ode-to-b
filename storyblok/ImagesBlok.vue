@@ -163,12 +163,12 @@ defineProps({ blok: Object });
           @media screen and ( max-width: $breakpoint-mobile)
             width: 100%
             margin-top: 0
-            margin-bottom: var(--spacing-one)
+            margin-bottom: var(--site-border-spacing)
             margin-left: 0
     li:first-child, li:nth-child(2)
       .imageGrid-ImageContainer
         @media screen and ( min-width: $breakpoint-mobile)
-          margin-top: var(--spacing-three)
+          margin-top: var(--site-border-spacing)
     li:last-child, li:nth-last-child(2)
       .imageGrid-ImageContainer
         @media screen and ( min-width: $breakpoint-mobile)
@@ -180,6 +180,6 @@ defineProps({ blok: Object });
         @media screen and ( max-width: $breakpoint-mobile)
           width: 100%
           margin-top: 0
-          margin-bottom: var(--spacing-one)
+          margin-bottom: var(--site-border-spacing)
           margin-left: 0
 </style>
