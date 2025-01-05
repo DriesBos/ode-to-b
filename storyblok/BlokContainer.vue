@@ -31,8 +31,12 @@ defineProps({ blok: Object });
     display: flex
     flex-wrap: no-wrap
     border: 0
-    & > section
-      flex-grow: 1
+    @media screen and ( max-width: $breakpoint-mobile)
+      flex-direction: column
+      gap: var(--site-border-spacing)
+      & > section
+        @media screen and ( min-width: $breakpoint-mobile)
+          flex-grow: 1
     // Random witdth values calculated in main body.css
   &-Overlay, &-Overlay.section
     position: absolute !important

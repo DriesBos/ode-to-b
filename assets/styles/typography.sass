@@ -45,6 +45,9 @@ h1, h2 // Titles // 80pt
   line-height: 1.2
   font-weight: 400
   font-style: normal
+  @media screen and ( max-width: $breakpoint-mobile)
+    text-align: center
+    line-height: 1
   strong
     font-weight: 600
   @media screen and ( max-width: 1200px)
@@ -59,6 +62,8 @@ h3, h4 // Big type // 40pt
   font-weight: 400
   font-style: normal
   max-width: var(--paragraph-width)
+  @media screen and ( max-width: $breakpoint-mobile)
+    line-height: 1
   strong
     font-weight: 600
   @media screen and ( max-width: 1200px)

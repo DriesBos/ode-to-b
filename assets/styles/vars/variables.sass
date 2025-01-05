@@ -31,26 +31,32 @@ body
   --side-spacing: 9vw
   --topside-spacing: calc(1.33rem + 5.5vw)
   --section-min-height: 100vh
-  .page-Default
-    --section-min-height: calc(100vh - (4 * #{var(--site-border-spacing)}))
-  .page-Project
-    --section-min-height: calc(100vh - (2 * #{var(--site-border-spacing)}))
+  @media screen and ( max-width: $breakpoint-mobile)
+    --section-min-height: 0
+  @media screen and ( min-width: $breakpoint-mobile)
+    .page-Default
+      --section-min-height: calc(100vh - (4 * #{var(--site-border-spacing)}))
+    .page-Project
+      --section-min-height: calc(100vh - (2 * #{var(--site-border-spacing)}))
   // NEW SYST
   --site-border-spacing: 2.75vw
   // Paragraph width
-  h1, h2
+  @media screen and (max-width: $breakpoint-mobile)
     --paragraph-width: 100%
-  h3, h4
-    --paragraph-width: 75%
-  h5, h6, p, .footer li, .footer a, nav li, nav a
-    --paragraph-width: 50%
-  .blok-Container
+  @media screen and ( min-width: $breakpoint-mobile)
     h1, h2
       --paragraph-width: 100%
     h3, h4
-      --paragraph-width: 85%
+      --paragraph-width: 75%
     h5, h6, p, .footer li, .footer a, nav li, nav a
-      --paragraph-width: 66%
+      --paragraph-width: 50%
+    .blok-Container
+      h1, h2
+        --paragraph-width: 100%
+      h3, h4
+        --paragraph-width: 85%
+      h5, h6, p, .footer li, .footer a, nav li, nav a
+        --paragraph-width: 66%
 
   @media screen and ( max-width: $breakpoint-mobile)
     --spacing-one: 1em

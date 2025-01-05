@@ -34,9 +34,10 @@ const props = defineProps({ blok: Object });
   flex-direction: column
   width: 100%
   overflow: hidden
-  padding-top: var(--site-border-spacing)
-  padding-bottom: var(--site-border-spacing)
   pointer-events: none
+  @media screen and ( min-width: $breakpoint-mobile)
+    padding-top: var(--site-border-spacing)
+    padding-bottom: var(--site-border-spacing)
   .markdown
     pointer-events: auto
   // &-Item

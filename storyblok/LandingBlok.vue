@@ -45,10 +45,16 @@ defineProps({ blok: Object });
 </script>
 
 <style lang="sass">
+.page-Default
+  .landingItem
+    height: calc(100vh - (4 * #{var(--site-border-spacing)}))
+.page-Project
+  .landingItem
+    height: calc(100vh - (2 * #{var(--site-border-spacing)}))
+
 .landingItem
   position: relative
   width: 100vw
-  height: var(--section-min-height)
   pointer-events: none
   color: white
   margin-bottom: var(--site-border-spacing)
@@ -83,7 +89,7 @@ defineProps({ blok: Object });
     text-transform: uppercase
     text-align: center
     h1
-      font-weight: 400
+      font-weight: 300
   &.removeFilter
     .landingItem-Image
       background-color: transparent !important

@@ -49,28 +49,18 @@
 // RANDOMNESS
 .page
   // Image blok random vertical offset
-  .blok-Container:nth-child(odd)
-    .imageSingle
-      transform: translateY(random(10) - 5%)
-    .imageSingle:nth-child(even)
-      transform: translateY(random(10) - 5%)
-  .blok-Container:nth-child(even)
-    .imageSingle:nth-child(odd)
-      transform: translateY(random(10) - 5%)
-    .imageSingle:nth-child(even)
-      transform: translateY(random(10) - 5%)
-  // Image blok random widths
-  .imageSingle
-    &.size-Large
-      .imageSingle-ImageContainer
-        width: random(10) + 90%
-    &.size-Medium
-      .imageSingle-ImageContainer
-        width: random(6) + 60%
-    &.size-Small
-      .imageSingle-ImageContainer
-        width: random(3) + 30%
-  .blok-Container:nth-child(even)
+  @media screen and ( min-width: $breakpoint-mobile)
+    .blok-Container:nth-child(odd)
+      .imageSingle
+        transform: translateY(random(10) - 5%)
+      .imageSingle:nth-child(even)
+        transform: translateY(random(10) - 5%)
+    .blok-Container:nth-child(even)
+      .imageSingle:nth-child(odd)
+        transform: translateY(random(10) - 5%)
+      .imageSingle:nth-child(even)
+        transform: translateY(random(10) - 5%)
+    // Image blok random widths
     .imageSingle
       &.size-Large
         .imageSingle-ImageContainer
@@ -81,87 +71,99 @@
       &.size-Small
         .imageSingle-ImageContainer
           width: random(3) + 30%
+    .blok-Container:nth-child(even)
+      .imageSingle
+        &.size-Large
+          .imageSingle-ImageContainer
+            width: random(10) + 90%
+        &.size-Medium
+          .imageSingle-ImageContainer
+            width: random(6) + 60%
+        &.size-Small
+          .imageSingle-ImageContainer
+            width: random(3) + 30%
   //Blok container section widths
-  .blok-Container    
-    &[data-columns="2"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(even)
-    &[data-columns="2"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-      & > section:nth-child(3)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(3)
-    &[data-columns="2"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(4)
-    &[data-columns="2"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-      & > section:nth-child(3)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(5)
-    &[data-columns="2"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(6)
-    &[data-columns="2"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-      & > section:nth-child(3)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(7)
-    &[data-columns="2"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(8)
-    &[data-columns="2"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-      & > section:nth-child(3)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(9)
-    &[data-columns="2"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-  .blok-Container:nth-child(10)
-    &[data-columns="2"]
-      & > section:nth-child(2)
-        flex-basis: random(20) + 80%
-    &[data-columns="3"]
-      & > section:nth-child(1)
-        flex-basis: random(20) + 80%
-      & > section:nth-child(3)
-        flex-basis: random(20) + 80%
+  @media screen and ( min-width: $breakpoint-mobile)
+    .blok-Container    
+      &[data-columns="2"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(even)
+      &[data-columns="2"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+        & > section:nth-child(3)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(3)
+      &[data-columns="2"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(4)
+      &[data-columns="2"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+        & > section:nth-child(3)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(5)
+      &[data-columns="2"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(6)
+      &[data-columns="2"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+        & > section:nth-child(3)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(7)
+      &[data-columns="2"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(8)
+      &[data-columns="2"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+        & > section:nth-child(3)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(9)
+      &[data-columns="2"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+    .blok-Container:nth-child(10)
+      &[data-columns="2"]
+        & > section:nth-child(2)
+          flex-basis: random(20) + 80%
+      &[data-columns="3"]
+        & > section:nth-child(1)
+          flex-basis: random(20) + 80%
+        & > section:nth-child(3)
+          flex-basis: random(20) + 80%
 
 
 // CURSOR
