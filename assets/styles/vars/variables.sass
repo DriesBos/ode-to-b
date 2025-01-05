@@ -30,14 +30,14 @@ body
   --spacing-three: 8vmin
   --side-spacing: 9vw
   --topside-spacing: calc(1.33rem + 5.5vw)
-  --section-min-height: 100vh
+  --section-min-height: 100svh
   @media screen and ( max-width: $breakpoint-mobile)
     --section-min-height: 0
   @media screen and ( min-width: $breakpoint-mobile)
     .page-Default
-      --section-min-height: calc(100vh - (4 * #{var(--site-border-spacing)}))
+      --section-min-height: calc(100svh - (4 * #{var(--site-border-spacing)}))
     .page-Project
-      --section-min-height: calc(100vh - (2 * #{var(--site-border-spacing)}))
+      --section-min-height: calc(100svh - (2 * #{var(--site-border-spacing)}))
   // NEW SYST
   --site-border-spacing: 2.75vw
   // Paragraph width

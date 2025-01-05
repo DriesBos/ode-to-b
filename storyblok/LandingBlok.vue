@@ -47,10 +47,10 @@ defineProps({ blok: Object });
 <style lang="sass">
 .page-Default
   .landingItem
-    height: calc(100vh - (4 * #{var(--site-border-spacing)}))
+    height: calc(100svh - (4 * #{var(--site-border-spacing)}))
 .page-Project
   .landingItem
-    height: calc(100vh - (2 * #{var(--site-border-spacing)}))
+    height: calc(100svh - (2 * #{var(--site-border-spacing)}))
 
 .landingItem
   position: relative
