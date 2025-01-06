@@ -18,5 +18,5 @@ defineProps({ blok: Object });
     padding-left: calc(3 * #{var(--site-border-spacing)})
     padding-top: calc(2 * #{var(--site-border-spacing)})
     padding-right: calc(3 * #{var(--site-border-spacing)})
-    padding-bottom: calc(1 * #{var(--site-border-spacing)})
+    padding-bottom: calc(1 * #{var(--section-gap)})
 </style>

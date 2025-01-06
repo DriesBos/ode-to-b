@@ -25,11 +25,16 @@ $breakpoint-tablet: 1024px
 $breakpoint-laptop: 1440px
 
 body
-  --spacing-one: 2vmin
-  --spacing-two: 4vmin
-  --spacing-three: 8vmin
-  --side-spacing: 9vw
-  --topside-spacing: calc(1.33rem + 5.5vw)
+  --spacing-one: 2vmin // OLD
+  --spacing-two: 4vmin // OLD
+  --spacing-three: 8vmin // OLD
+  --side-spacing: 9vw // OLD
+  --topside-spacing: calc(1.33rem + 5.5vw) // OLD
+  // NEW SPACING SYSTEM
+  --site-border-spacing: 2.75vw
+  --section-gap: 2.75vw
+  @media screen and ( max-width: $breakpoint-mobile)
+    --section-gap: calc(2.75vh * 5)
   --section-min-height: 100svh
   @media screen and ( max-width: $breakpoint-mobile)
     --section-min-height: 0
@@ -38,8 +43,6 @@ body
       --section-min-height: calc(100svh - (4 * #{var(--site-border-spacing)}))
     .page-Project
       --section-min-height: calc(100svh - (2 * #{var(--site-border-spacing)}))
-  // NEW SYST
-  --site-border-spacing: 2.75vw
   // Paragraph width
   @media screen and (max-width: $breakpoint-mobile)
     --paragraph-width: 100%
