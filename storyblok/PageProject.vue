@@ -16,4 +16,5 @@ defineProps({ blok: Object });
 .page
   &-Project
     padding: var(--site-border-spacing)
+    padding-bottom: calc(3 * #{var(--site-border-spacing)})
 </style>
