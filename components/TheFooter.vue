@@ -1,17 +1,5 @@
 <template>
   <section id="theFooter" class="footer" :class="{ visible: isVisible }">
-    <div class="scrollUp" @click="handleClick">
-      <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 26">
-        <g clip-path="url(#a)">
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M24 13.986H2.822l9.602 9.591-1.413 1.412L.409 14.4l-.001.001L-1 12.996l.002-.002H-1l1.413-1.412h.002L11.011 1l1.407 1.406-9.596 9.584H24v1.996Z"
-            fill="currentColor"
-          />
-        </g>
-      </svg>
-    </div>
     <ul>
       <li>Site</li>
       <li class="hovered links">
@@ -74,6 +62,18 @@
         >
       </li>
     </ul>
+    <div class="scrollUp" @click="handleClick">
+      <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 26">
+        <g clip-path="url(#a)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M24 13.986H2.822l9.602 9.591-1.413 1.412L.409 14.4l-.001.001L-1 12.996l.002-.002H-1l1.413-1.412h.002L11.011 1l1.407 1.406-9.596 9.584H24v1.996Z"
+            fill="currentColor"
+          />
+        </g>
+      </svg>
+    </div>
   </section>
 </template>
 
@@ -198,28 +198,25 @@ general.value = data.stories;
       &:first-child
         text-transform: uppercase
         font-weight: 200
-    &:nth-child(1)
-      @media screen and ( max-width: $breakpoint-mobile)
-        // order: 1
-    &:nth-child(2)
-      @media screen and ( max-width: $breakpoint-mobile)
-        // order: 3
-    &:nth-child(3)
-      @media screen and ( max-width: $breakpoint-mobile)
-        // order: 2
 
 .scrollUp
   position: absolute
-  width: var(--site-border-spacing)
-  height: var(--site-border-spacing)
-  left: 0
-  bottom: calc(3 * #{var(--site-border-spacing)})
+  bottom: calc(4 * #{var(--site-border-spacing)})
+  right: var(--site-border-spacing)
   display: flex
   justify-content: center
   align-items: center
   cursor: pointer
+  @media screen and ( min-width: $breakpoint-mobile)
+    bottom: calc(3 * #{var(--site-border-spacing)})
+    width: var(--site-border-spacing)
+    height: var(--site-border-spacing)
+  @media screen and ( max-width: $breakpoint-mobile)
+    width: calc(2 * #{var(--site-border-spacing)})
+    height: calc(2 * #{var(--site-border-spacing)})
   svg
     height: 1.5rem
+    width: 1.5remß
     fill: var(--current-color)
     transition: all 0.33s ease
     transform: translateY(0%) rotate(90deg)
