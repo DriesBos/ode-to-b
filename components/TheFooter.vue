@@ -193,20 +193,20 @@ general.value = data.stories;
     flex: 1 1 0px
     @media screen and ( max-width: $breakpoint-mobile)
       flex-basis: 50%
-      padding-bottom: var(--spacing-three)
+      padding-bottom: var(--site-border-spacing)
     li
       &:first-child
         text-transform: uppercase
         font-weight: 200
     &:nth-child(1)
       @media screen and ( max-width: $breakpoint-mobile)
-        order: 1
+        // order: 1
     &:nth-child(2)
       @media screen and ( max-width: $breakpoint-mobile)
-        order: 3
+        // order: 3
     &:nth-child(3)
       @media screen and ( max-width: $breakpoint-mobile)
-        order: 2
+        // order: 2
 
 .scrollUp
   position: absolute
