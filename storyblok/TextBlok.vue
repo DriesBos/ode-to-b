@@ -5,7 +5,7 @@
     class="textBlok intersectionObserver"
     :class="{ fullscreen: blok.fullscreen, textCenter: blok.left_alignment, capslock: blok.capslock }, [blok.position]"
   >
-  <template v-if="blok.graphic">
+  <!-- <template v-if="blok.graphic">
     <div class="graphic" :class="blok.graphic_alignment">
         <NuxtImg
           v-if="blok.graphic"
@@ -16,7 +16,7 @@
           loading="lazy"
         />
       </div>
-  </template>
+  </template> -->
 
   <Markdown v-if="blok.text" class="textBlok-Item textBlok-Main" :content="blok.text" />
   <!-- <Markdown v-if="blok.fade_in_text"    class="textBlok-Item textBlok-FadeIn"
@@ -38,6 +38,8 @@ const props = defineProps({ blok: Object });
   @media screen and ( min-width: $breakpoint-mobile)
     padding-top: var(--site-border-spacing)
     padding-bottom: var(--site-border-spacing)
+  @media screen and ( max-width: $breakpoint-mobile)
+    text-align: center
   .markdown
     pointer-events: auto
   // &-Item
