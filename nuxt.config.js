@@ -79,4 +79,6 @@ export default defineNuxtConfig({
   build: {
     transpile: ['gsap'],
   },
+
+  compatibilityDate: '2025-11-27',
 });
